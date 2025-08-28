@@ -582,43 +582,49 @@ body {
 .detail-seats-grid[data-table="2"] {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(7, 1fr);
-    min-width: 160px;
-    min-height: 560px;
+    min-width: 120px;
+    min-height: 420px;
+    max-width: 100%;
 }
 
 .detail-seats-grid[data-table="3"] {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    min-width: 160px;
-    min-height: 240px;
+    min-width: 120px;
+    min-height: 180px;
+    max-width: 100%;
 }
 
 .detail-seats-grid[data-table="4"] {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    min-width: 160px;
-    min-height: 240px;
+    min-width: 120px;
+    min-height: 180px;
+    max-width: 100%;
 }
 
 .detail-seats-grid[data-table="5"] {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(8, 1fr);
-    min-width: 160px;
-    min-height: 640px;
+    min-width: 120px;
+    min-height: 480px;
+    max-width: 100%;
 }
 
 .detail-seats-grid[data-table="6"] {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    min-width: 160px;
-    min-height: 400px;
+    min-width: 120px;
+    min-height: 300px;
+    max-width: 100%;
 }
 
 .detail-seats-grid[data-table="7"] {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    min-width: 160px;
-    min-height: 400px;
+    min-width: 120px;
+    min-height: 300px;
+    max-width: 100%;
 }
 
 /* Detail Seat */
@@ -775,18 +781,53 @@ body {
     }
     
     .detail-seats {
-        padding: 16px;
+        padding: 12px;
+    }
+    
+    .detail-seats-grid {
+        gap: 6px;
+        padding: 12px;
     }
     
     .detail-seats-grid[data-table="1"] {
-        min-width: 320px;
-        min-height: 120px;
+        min-width: 280px;
+        min-height: 100px;
+    }
+    
+    .detail-seats-grid[data-table="2"] {
+        min-width: 100px;
+        min-height: 350px;
+    }
+    
+    .detail-seats-grid[data-table="3"] {
+        min-width: 100px;
+        min-height: 150px;
+    }
+    
+    .detail-seats-grid[data-table="4"] {
+        min-width: 100px;
+        min-height: 150px;
+    }
+    
+    .detail-seats-grid[data-table="5"] {
+        min-width: 100px;
+        min-height: 400px;
+    }
+    
+    .detail-seats-grid[data-table="6"] {
+        min-width: 100px;
+        min-height: 250px;
+    }
+    
+    .detail-seats-grid[data-table="7"] {
+        min-width: 100px;
+        min-height: 250px;
     }
     
     .detail-seat {
-        width: 40px;
-        height: 40px;
-        font-size: 0.75rem;
+        width: 35px;
+        height: 35px;
+        font-size: 0.7rem;
     }
     
     .view-controls {
@@ -827,14 +868,49 @@ body {
     }
     
     .detail-seats-grid[data-table="1"] {
-        min-width: 280px;
-        min-height: 100px;
+        min-width: 240px;
+        min-height: 80px;
+    }
+    
+    .detail-seats-grid {
+        gap: 4px;
+        padding: 8px;
+    }
+    
+    .detail-seats-grid[data-table="2"] {
+        min-width: 80px;
+        min-height: 280px;
+    }
+    
+    .detail-seats-grid[data-table="3"] {
+        min-width: 80px;
+        min-height: 120px;
+    }
+    
+    .detail-seats-grid[data-table="4"] {
+        min-width: 80px;
+        min-height: 120px;
+    }
+    
+    .detail-seats-grid[data-table="5"] {
+        min-width: 80px;
+        min-height: 320px;
+    }
+    
+    .detail-seats-grid[data-table="6"] {
+        min-width: 80px;
+        min-height: 200px;
+    }
+    
+    .detail-seats-grid[data-table="7"] {
+        min-width: 80px;
+        min-height: 200px;
     }
     
     .detail-seat {
-        width: 35px;
-        height: 35px;
-        font-size: 0.7rem;
+        width: 30px;
+        height: 30px;
+        font-size: 0.65rem;
     }
     
     .detail-header {
