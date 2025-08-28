@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>婚禮座位查詢</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+    <main class="container">
+        <div class="search-card">
+            <header class="search-header">
+                <h1>賓客座位查詢</h1>
+                <p>請輸入您的姓名以尋找您的座位</p>
+            </header>
+
+            <div class="search-field">
+                <span class="material-icons-outlined" aria-hidden="true">search</span>
+                <input type="text" id="searchInput" placeholder=" " autocomplete="off">
+                <label for="searchInput">姓名</label>
+                
+                <div id="suggestionsList" class="suggestions-list">
+                    <!-- 搜尋建議將動態插入此處 -->
+                </div>
+            </div>
+        </div>
+
+        <div id="resultCard" class="result-card-container">
+            <!-- 搜尋結果將動態插入此處 -->
+        </div>
+
+        <!-- 視覺化座位平面圖 -->
+        <div class="floor-plan-section">
+            <div class="floor-plan-header">
+                <h2>座位平面圖</h2>
+                <p>點擊座位可查看詳細資訊</p>
+            </div>
+            
+            <div class="floor-plan-container">
+                <div id="floorPlan" class="floor-plan">
+                    <!-- 座位平面圖將由 JavaScript 動態生成 -->
+                </div>
+            </div>
+
+            <div class="floor-plan-legend">
+                <div class="legend-item">
+                    <div class="legend-color available"></div>
+                    <span>空位</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color occupied"></div>
+                    <span>已安排</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color highlighted"></div>
+                    <span>您的座位</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
