@@ -1,77 +1,82 @@
 // 賓客資料
 const guestData = [
-    { name: "子豪", table: 1, seat: 1 },
-    { name: "子豪爸爸", table: 1, seat: 2 },
-    { name: "子豪媽媽", table: 1, seat: 3 },
-    { name: "子豪爺爺", table: 1, seat: 4 },
-    { name: "子豪奶奶", table: 1, seat: 5 },
-    { name: "子豪外公", table: 1, seat: 6 },
-    { name: "子豪外婆", table: 1, seat: 7 },
-    { name: "子豪舅舅", table: 1, seat: 8 },
-    { name: "子豪舅媽", table: 1, seat: 9 },
-    { name: "子豪表哥", table: 1, seat: 10 },
-    { name: "子豪表姐", table: 1, seat: 11 },
-    { name: "子豪表弟", table: 1, seat: 12 },
-    { name: "美美", table: 2, seat: 1 },
-    { name: "美美爸爸", table: 2, seat: 2 },
-    { name: "美美媽媽", table: 2, seat: 3 },
-    { name: "美美爺爺", table: 2, seat: 4 },
-    { name: "美美奶奶", table: 2, seat: 5 },
-    { name: "美美外公", table: 2, seat: 6 },
-    { name: "美美外婆", table: 2, seat: 7 },
-    { name: "美美舅舅", table: 2, seat: 8 },
-    { name: "美美舅媽", table: 2, seat: 9 },
-    { name: "美美表哥", table: 2, seat: 10 },
-    { name: "美美表姐", table: 2, seat: 11 },
-    { name: "美美表弟", table: 2, seat: 12 },
-    { name: "小明", table: 3, seat: 1 },
-    { name: "小明爸爸", table: 3, seat: 2 },
-    { name: "小明媽媽", table: 3, seat: 3 },
-    { name: "小明爺爺", table: 3, seat: 4 },
-    { name: "小明奶奶", table: 3, seat: 5 },
-    { name: "小明外公", table: 3, seat: 6 },
-    { name: "小華", table: 4, seat: 1 },
-    { name: "小華爸爸", table: 4, seat: 2 },
-    { name: "小華媽媽", table: 4, seat: 3 },
-    { name: "小華爺爺", table: 4, seat: 4 },
-    { name: "小華奶奶", table: 4, seat: 5 },
-    { name: "小華外公", table: 4, seat: 6 },
-    { name: "小芳", table: 5, seat: 1 },
-    { name: "小芳爸爸", table: 5, seat: 2 },
-    { name: "小芳媽媽", table: 5, seat: 3 },
-    { name: "小芳爺爺", table: 5, seat: 4 },
-    { name: "小芳奶奶", table: 5, seat: 5 },
-    { name: "小芳外公", table: 5, seat: 6 },
-    { name: "小芳外婆", table: 5, seat: 7 },
-    { name: "小芳舅舅", table: 5, seat: 8 },
-    { name: "小芳舅媽", table: 5, seat: 9 },
-    { name: "小芳表哥", table: 5, seat: 10 },
-    { name: "小芳表姐", table: 5, seat: 11 },
-    { name: "小芳表弟", table: 5, seat: 12 },
-    { name: "小芳表妹", table: 5, seat: 13 },
-    { name: "小芳堂哥", table: 5, seat: 14 },
-    { name: "小芳堂姐", table: 5, seat: 15 },
-    { name: "小芳堂弟", table: 5, seat: 16 },
-    { name: "小強", table: 6, seat: 1 },
-    { name: "小強爸爸", table: 6, seat: 2 },
-    { name: "小強媽媽", table: 6, seat: 3 },
-    { name: "小強爺爺", table: 6, seat: 4 },
-    { name: "小強奶奶", table: 6, seat: 5 },
-    { name: "小強外公", table: 6, seat: 6 },
-    { name: "小強外婆", table: 6, seat: 7 },
-    { name: "小強舅舅", table: 6, seat: 8 },
-    { name: "小強舅媽", table: 6, seat: 9 },
-    { name: "小強表哥", table: 6, seat: 10 },
-    { name: "小麗", table: 7, seat: 1 },
-    { name: "小麗爸爸", table: 7, seat: 2 },
-    { name: "小麗媽媽", table: 7, seat: 3 },
-    { name: "小麗爺爺", table: 7, seat: 4 },
-    { name: "小麗奶奶", table: 7, seat: 5 },
-    { name: "小麗外公", table: 7, seat: 6 },
-    { name: "小麗外婆", table: 7, seat: 7 },
-    { name: "小麗舅舅", table: 7, seat: 8 },
-    { name: "小麗舅媽", table: 7, seat: 9 },
-    { name: "小麗表哥", table: 7, seat: 10 }
+    { "name": "子豪爸爸", "seatNumber": "1", "tableNumber": "1" },
+    { "name": "子豪媽媽", "seatNumber": "2", "tableNumber": "1" },
+    { "name": "子豪", "seatNumber": "3", "tableNumber": "1" },
+    { "name": "瀞瀅", "seatNumber": "4", "tableNumber": "1" },
+    { "name": "瀞瀅媽媽", "seatNumber": "5", "tableNumber": "1" },
+    { "name": "瀞瀅爸爸", "seatNumber": "6", "tableNumber": "1" },
+    { "name": "子豪阿公", "seatNumber": "7", "tableNumber": "1" },
+    { "name": "子豪阿嬤", "seatNumber": "8", "tableNumber": "1" },
+    { "name": "子豪阿嬤2", "seatNumber": "9", "tableNumber": "1" },
+    { "name": "子豪姑姑", "seatNumber": "10", "tableNumber": "1" },
+    { "name": "子豪姑丈", "seatNumber": "11", "tableNumber": "1" },
+    { "name": "子豪叔叔", "seatNumber": "12", "tableNumber": "1" },
+    
+    { "name": "楊俊佑院長", "seatNumber": "1", "tableNumber": "2" },
+    { "name": "高雅慧老師", "seatNumber": "2", "tableNumber": "2" },
+    { "name": "李莘", "seatNumber": "3", "tableNumber": "2" },
+    { "name": "花筠庭", "seatNumber": "4", "tableNumber": "2" },
+    { "name": "陳姿穎", "seatNumber": "5", "tableNumber": "2" },
+    { "name": "胡嘉倩", "seatNumber": "6", "tableNumber": "2" },
+    { "name": "黎孟勳", "seatNumber": "7", "tableNumber": "2" },
+    { "name": "趙子揚", "seatNumber": "8", "tableNumber": "2" },
+    { "name": "張嘉璇", "seatNumber": "9", "tableNumber": "2" },
+    { "name": "陳姿樺", "seatNumber": "10", "tableNumber": "2" },
+    { "name": "阮垂蓉", "seatNumber": "11", "tableNumber": "2" },
+    { "name": "邱詠庭", "seatNumber": "12", "tableNumber": "2" },
+    { "name": "黃元佑", "seatNumber": "13", "tableNumber": "2" },
+    { "name": "蘇子廷", "seatNumber": "14", "tableNumber": "2" },
+    
+    { "name": "周伊謙", "seatNumber": "1", "tableNumber": "3" },
+    { "name": "李宥菁", "seatNumber": "2", "tableNumber": "3" },
+    { "name": "施佳亨", "seatNumber": "3", "tableNumber": "3" },
+    { "name": "葉睿穎", "seatNumber": "4", "tableNumber": "3" },
+    { "name": "劉書丞", "seatNumber": "5", "tableNumber": "3" },
+    { "name": "劉宗翰", "seatNumber": "6", "tableNumber": "3" },
+    
+    { "name": "子恩", "seatNumber": "1", "tableNumber": "4" },
+    { "name": "蝌蚪", "seatNumber": "2", "tableNumber": "4" },
+    { "name": "子豪大舅", "seatNumber": "3", "tableNumber": "4" },
+    { "name": "鈴瀅", "seatNumber": "4", "tableNumber": "4" },
+    { "name": "子豪阿姨", "seatNumber": "5", "tableNumber": "4" },
+    { "name": "子豪大舅媽", "seatNumber": "6", "tableNumber": "4" },
+    
+    { "name": "方", "seatNumber": "1", "tableNumber": "5" },
+    { "name": "謝", "seatNumber": "2", "tableNumber": "5" },
+    { "name": "進財", "seatNumber": "3", "tableNumber": "5" },
+    { "name": "賴", "seatNumber": "4", "tableNumber": "5" },
+    { "name": "勝利", "seatNumber": "5", "tableNumber": "5" },
+    { "name": "蕭", "seatNumber": "6", "tableNumber": "5" },
+    { "name": "堃", "seatNumber": "7", "tableNumber": "5" },
+    { "name": "金安", "seatNumber": "8", "tableNumber": "5" },
+    { "name": "方", "seatNumber": "9", "tableNumber": "5" },
+    { "name": "謝", "seatNumber": "10", "tableNumber": "5" },
+    { "name": "謝", "seatNumber": "11", "tableNumber": "5" },
+    { "name": "賴", "seatNumber": "12", "tableNumber": "5" },
+    { "name": "進村", "seatNumber": "13", "tableNumber": "5" },
+    { "name": "蕭", "seatNumber": "14", "tableNumber": "5" },
+    { "name": "堃", "seatNumber": "15", "tableNumber": "5" },
+    { "name": "金安", "seatNumber": "16", "tableNumber": "5" },
+    
+    { "name": "小舅", "seatNumber": "1", "tableNumber": "6" },
+    { "name": "小舅", "seatNumber": "2", "tableNumber": "6" },
+    { "name": "小舅", "seatNumber": "3", "tableNumber": "6" },
+    { "name": "益民", "seatNumber": "4", "tableNumber": "6" },
+    { "name": "元智", "seatNumber": "5", "tableNumber": "6" },
+    { "name": "小舅", "seatNumber": "6", "tableNumber": "6" },
+    { "name": "小舅", "seatNumber": "7", "tableNumber": "6" },
+    { "name": "宇翔", "seatNumber": "8", "tableNumber": "6" },
+    { "name": "益民", "seatNumber": "9", "tableNumber": "6" },
+    { "name": "元智", "seatNumber": "10", "tableNumber": "6" },
+    
+    { "name": "雷", "seatNumber": "1", "tableNumber": "7" },
+    { "name": "愛芸", "seatNumber": "2", "tableNumber": "7" },
+    { "name": "助理", "seatNumber": "3", "tableNumber": "7" },
+    { "name": "助理", "seatNumber": "4", "tableNumber": "7" },
+    { "name": "宗哲", "seatNumber": "5", "tableNumber": "7" },
+    { "name": "顥宜", "seatNumber": "6", "tableNumber": "7" },
+    { "name": "助理", "seatNumber": "7", "tableNumber": "7" }
 ];
 
 // DOM 元素
@@ -202,7 +207,7 @@ function showSuggestions(guests) {
         suggestionItem.innerHTML = `
             <span class="material-icons-outlined">person</span>
             <div class="guest-name">${guest.name}</div>
-            <div class="guest-info">桌${guest.table} - 座位${guest.seat}</div>
+            <div class="guest-info">桌${guest.tableNumber} - 座位${guest.seatNumber}</div>
         `;
         
         suggestionsList.appendChild(suggestionItem);
@@ -277,11 +282,11 @@ function displayResultCard(state, data = null) {
                     <div class="seat-details">
                         <div class="detail-item">
                             <span class="detail-label">桌次</span>
-                            <span class="detail-value">${data.table}</span>
+                            <span class="detail-value">${data.tableNumber}</span>
                         </div>
                         <div class="detail-item">
                             <span class="detail-label">座位</span>
-                            <span class="detail-value">${data.seat}</span>
+                            <span class="detail-value">${data.seatNumber}</span>
                         </div>
                     </div>
                 </div>
@@ -345,7 +350,7 @@ function createOverviewTableCard(tableNum) {
     tableCard.dataset.table = tableNum;
     
     // 統計該桌次的賓客數量
-    const guestCount = guestData.filter(guest => guest.table === tableNum).length;
+    const guestCount = guestData.filter(guest => guest.tableNumber === tableNum.toString()).length;
     const maxSeats = getMaxSeatsForTable(tableNum);
     
     tableCard.innerHTML = `
@@ -386,7 +391,7 @@ function highlightGuestTable(guest) {
     });
     
     // 高亮對應桌次
-    const targetTable = document.querySelector(`.overview-table-card[data-table="${guest.table}"]`);
+    const targetTable = document.querySelector(`.overview-table-card[data-table="${guest.tableNumber}"]`);
     if (targetTable) {
         targetTable.classList.add('highlighted');
     }
@@ -430,7 +435,7 @@ function showDetailView(tableNum) {
     generateDetailSeats(tableNum);
     
     // 如果有當前賓客且在相同桌次，高亮其座位
-    if (currentGuest && currentGuest.table === tableNum) {
+    if (currentGuest && currentGuest.tableNumber === tableNum.toString()) {
         highlightGuestSeat(currentGuest);
     }
 }
@@ -456,10 +461,10 @@ function generateDetailSeats(tableNum) {
         seat.textContent = seatNum;
         
         // 檢查是否有賓客在此座位
-        const guest = guestData.find(g => g.table === tableNum && g.seat === seatNum);
+        const guest = guestData.find(g => g.tableNumber === tableNum.toString() && g.seatNumber === seatNum.toString());
         if (guest) {
             seat.classList.add('occupied');
-            seat.title = `${guest.name} - 桌${guest.table} 座位${guest.seat}`;
+            seat.title = `${guest.name} - 桌${guest.tableNumber} 座位${guest.seatNumber}`;
         } else {
             seat.classList.add('available');
             seat.title = `空位 - 桌${tableNum} 座位${seatNum}`;
@@ -490,7 +495,7 @@ function highlightGuestSeat(guest) {
     });
     
     // 高亮對應座位
-    const targetSeat = document.querySelector(`.detail-seat[data-seat="${guest.seat}"]`);
+    const targetSeat = document.querySelector(`.detail-seat[data-seat="${guest.seatNumber}"]`);
     if (targetSeat) {
         targetSeat.classList.add('highlighted');
         targetSeat.scrollIntoView({ behavior: 'smooth', block: 'center' });

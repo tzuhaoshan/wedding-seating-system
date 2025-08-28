@@ -28,6 +28,29 @@
 - ✅ 行動裝置 (iOS Safari, Android Chrome)
 - ✅ 平板裝置 (iPad, Android Tablet)
 
+## 🚀 快速開始
+
+### 本地運行
+1. 下載所有檔案到本地資料夾
+2. 用瀏覽器開啟 `index.html`
+3. 開始使用！
+
+### 線上部署 (GitHub Pages)
+
+#### 方法一：使用 GitHub Desktop
+1. 在 GitHub 建立新的 repository
+2. 使用 GitHub Desktop 克隆到本地
+3. 將所有檔案複製到 repository 資料夾
+4. 提交並推送到 GitHub
+5. 在 repository 設定中啟用 GitHub Pages
+
+#### 方法二：直接上傳
+1. 在 GitHub 建立新的 repository
+2. 點擊 "uploading an existing file"
+3. 拖拽所有檔案到上傳區域
+4. 提交檔案
+5. 在 Settings > Pages 中啟用 GitHub Pages
+
 ## 📁 檔案結構
 
 ```
@@ -56,3 +79,42 @@ const guestData = [
     { "name": "賓客姓名", "seatNumber": "座位號", "tableNumber": "桌號" },
     // 添加更多賓客...
 ];
+```
+
+### 修改顏色主題
+編輯 `styles.css` 檔案中的 CSS 變數：
+
+```css
+:root {
+    --md-sys-color-primary: #6750A4;  /* 主色調 */
+    --md-sys-color-surface: #FFFBFE;  /* 背景色 */
+    /* 其他顏色設定... */
+}
+```
+
+## 🌐 部署到其他平台
+
+### Netlify
+1. 註冊 Netlify 帳號
+2. 拖拽專案資料夾到 Netlify 部署區域
+3. 獲得免費的 HTTPS 網址
+
+### Vercel
+1. 註冊 Vercel 帳號
+2. 連接 GitHub repository
+3. 自動部署並獲得網址
+
+## 📞 技術支援
+
+如有問題或建議，請：
+1. 檢查瀏覽器 Console 是否有錯誤訊息
+2. 確認所有檔案都在同一資料夾
+3. 使用現代瀏覽器 (Chrome, Firefox, Safari, Edge)
+
+## 📄 授權
+
+本專案採用 MIT 授權條款。
+
+---
+
+**祝您的婚禮順利圓滿！** 🎉
