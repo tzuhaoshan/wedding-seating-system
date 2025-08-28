@@ -37,19 +37,27 @@
         <div class="floor-plan-section">
             <div class="floor-plan-header">
                 <h2>座位平面圖</h2>
-                <p>點擊座位可查看詳細資訊</p>
-<<<<<<< HEAD
-                <div class="mobile-instruction" style="display: none;">
-                    <span class="material-icons-outlined">touch_app</span>
-                    <span>在手機上左右滑動可查看完整平面圖</span>
-                </div>
-=======
->>>>>>> b372ebacca40d3324520df0652f27e72603620d5
+                <p>點擊座位可查看詳細資訊，支援縮放和平移</p>
             </div>
             
             <div class="floor-plan-container">
-                <div id="floorPlan" class="floor-plan">
-                    <!-- 座位平面圖將由 JavaScript 動態生成 -->
+                <!-- 縮放控制按鈕 -->
+                <div class="zoom-controls">
+                    <button id="zoomIn" class="zoom-btn" title="放大">
+                        <span class="material-icons-outlined">zoom_in</span>
+                    </button>
+                    <button id="zoomOut" class="zoom-btn" title="縮小">
+                        <span class="material-icons-outlined">zoom_out</span>
+                    </button>
+                    <button id="resetView" class="zoom-btn" title="重置視圖">
+                        <span class="material-icons-outlined">crop_free</span>
+                    </button>
+                </div>
+                
+                <div class="floor-plan-viewport">
+                    <div id="floorPlan" class="floor-plan">
+                        <!-- 座位平面圖將由 JavaScript 動態生成 -->
+                    </div>
                 </div>
             </div>
 

@@ -1,9 +1,6 @@
 :root {
-<<<<<<< HEAD
-=======
     /* Material Design 3 (Material You) Token Reference */
     /* Using a vibrant purple as the primary color */
->>>>>>> b372ebacca40d3324520df0652f27e72603620d5
     --md-sys-color-primary: #6750A4;
     --md-sys-color-on-primary: #FFFFFF;
     --md-sys-color-primary-container: #EADDFF;
@@ -13,12 +10,6 @@
     --md-sys-color-on-surface: #1C1B1F;
     --md-sys-color-on-surface-variant: #49454F;
     --md-sys-color-outline: #79747E;
-<<<<<<< HEAD
-    --md-sys-color-error: #B3261E;
-    --md-sys-font-family: 'Roboto', 'Noto Sans TC', sans-serif;
-    --md-sys-shape-corner-medium: 12px;
-    --md-sys-shape-corner-large: 16px;
-=======
     --md-sys-color-shadow: #000000;
     --md-sys-color-error: #B3261E;
 
@@ -29,7 +20,6 @@
     --md-sys-shape-corner-medium: 12px;
     --md-sys-shape-corner-large: 16px;
     --md-sys-shape-corner-extra-large: 28px;
->>>>>>> b372ebacca40d3324520df0652f27e72603620d5
 }
 
 * {
@@ -53,7 +43,7 @@ body {
 
 .container {
     width: 100%;
-    max-width: 560px;
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -73,22 +63,14 @@ body {
 }
 
 .search-header h1 {
-<<<<<<< HEAD
-    font-size: 1.75rem;
-=======
     font-size: 1.75rem; /* Display Small */
->>>>>>> b372ebacca40d3324520df0652f27e72603620d5
     font-weight: 400;
     line-height: 2.25rem;
     color: var(--md-sys-color-on-surface);
 }
 
 .search-header p {
-<<<<<<< HEAD
-    font-size: 1rem;
-=======
     font-size: 1rem; /* Body Large */
->>>>>>> b372ebacca40d3324520df0652f27e72603620d5
     line-height: 1.5rem;
     color: var(--md-sys-color-on-surface-variant);
     margin-top: 8px;
@@ -123,11 +105,7 @@ body {
     background: none;
     font-size: 1rem;
     color: var(--md-sys-color-on-surface);
-<<<<<<< HEAD
-    padding-top: 16px;
-=======
     padding-top: 16px; /* Make space for the floating label */
->>>>>>> b372ebacca40d3324520df0652f27e72603620d5
 }
 
 .search-field label {
@@ -346,34 +324,65 @@ body {
     color: var(--md-sys-color-on-surface-variant);
 }
 
-<<<<<<< HEAD
-.mobile-instruction {
+.floor-plan-container {
+    margin-bottom: 24px;
+    position: relative;
+}
+
+/* Zoom Controls */
+.zoom-controls {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 100;
+}
+
+.zoom-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--md-sys-color-surface);
+    border: 1px solid var(--md-sys-color-outline);
+    color: var(--md-sys-color-on-surface);
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    margin-top: 12px;
-    padding: 8px 16px;
-    background-color: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
-    border-radius: var(--md-sys-shape-corner-medium);
-    font-size: 0.875rem;
-    font-weight: 500;
-    border: 1px solid var(--md-sys-color-primary);
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
 }
 
-.mobile-instruction .material-icons-outlined {
+.zoom-btn:hover {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    box-shadow: 0 4px 8px -1px rgba(0, 0, 0, 0.15);
+}
+
+.zoom-btn:active {
+    transform: scale(0.95);
+}
+
+.zoom-btn .material-icons-outlined {
     font-size: 1.25rem;
 }
 
-.floor-plan-container {
-    margin-bottom: 24px;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-=======
-.floor-plan-container {
-    margin-bottom: 24px;
->>>>>>> b372ebacca40d3324520df0652f27e72603620d5
+/* Floor Plan Viewport */
+.floor-plan-viewport {
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    border-radius: var(--md-sys-shape-corner-medium);
+    border: 1px solid var(--md-sys-color-outline);
+    background-color: var(--md-sys-color-surface-variant);
+    position: relative;
+    cursor: grab;
+}
+
+.floor-plan-viewport:active {
+    cursor: grabbing;
 }
 
 .floor-plan {
@@ -381,24 +390,19 @@ body {
     flex-direction: column;
     gap: 32px;
     align-items: center;
-<<<<<<< HEAD
-    min-width: 800px;
-=======
->>>>>>> b372ebacca40d3324520df0652f27e72603620d5
+    padding: 32px;
+    min-width: 1200px;
+    min-height: 800px;
+    transform-origin: center center;
+    transition: transform 0.1s ease;
+    user-select: none;
 }
 
-/* Table Layout */
+/* Table Layout - 保持原始排列，不因螢幕大小改變 */
 .table-row {
     display: flex;
     justify-content: center;
     width: 100%;
-}
-
-.table-column {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    align-items: center;
 }
 
 .table-columns-container {
@@ -409,9 +413,16 @@ body {
     max-width: 1200px;
 }
 
+.table-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+}
+
 /* Individual Table */
 .table-card {
-    background-color: var(--md-sys-color-surface-variant);
+    background-color: var(--md-sys-color-surface);
     border-radius: var(--md-sys-shape-corner-medium);
     padding: 16px;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -442,17 +453,13 @@ body {
 .seats-grid {
     display: grid;
     gap: 8px;
-    background-color: var(--md-sys-color-surface);
+    background-color: var(--md-sys-color-surface-variant);
     padding: 16px;
     border-radius: var(--md-sys-shape-corner-medium);
     border: 1px solid var(--md-sys-color-outline);
 }
 
-<<<<<<< HEAD
-/* Different table configurations - 保持原始配置 */
-=======
-/* Different table configurations */
->>>>>>> b372ebacca40d3324520df0652f27e72603620d5
+/* 固定桌子配置 - 不因螢幕大小改變 */
 .table-card[data-table="1"] .seats-grid {
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -609,24 +616,16 @@ body {
     border-color: var(--md-sys-color-primary);
 }
 
-<<<<<<< HEAD
-/* 行動裝置優化 - 保持原始配置但添加縮放提示 */
-=======
-/* Responsive Design */
->>>>>>> b372ebacca40d3324520df0652f27e72603620d5
+/* Responsive Design - 只調整視窗大小，不改變桌子排列 */
 @media (max-width: 768px) {
     body {
         padding: 1rem;
     }
-<<<<<<< HEAD
     
-=======
->>>>>>> b372ebacca40d3324520df0652f27e72603620d5
     .search-header h1 {
         font-size: 1.5rem;
         line-height: 2rem;
     }
-<<<<<<< HEAD
     
     .search-header p {
         font-size: 0.875rem;
@@ -636,135 +635,50 @@ body {
         padding: 16px;
     }
     
-    /* 顯示行動裝置提示 */
-    .mobile-instruction {
-        display: flex !important;
+    .floor-plan-viewport {
+        height: 400px;
     }
     
-    /* 保持原始桌子配置，但調整容器 */
-    .floor-plan-container {
-        position: relative;
-        overflow: auto;
-        border: 2px dashed var(--md-sys-color-outline);
-        border-radius: var(--md-sys-shape-corner-medium);
-        background: linear-gradient(45deg, var(--md-sys-color-surface-variant) 25%, transparent 25%), 
-                    linear-gradient(-45deg, var(--md-sys-color-surface-variant) 25%, transparent 25%), 
-                    linear-gradient(45deg, transparent 75%, var(--md-sys-color-surface-variant) 75%), 
-                    linear-gradient(-45deg, transparent 75%, var(--md-sys-color-surface-variant) 75%);
-        background-size: 20px 20px;
-        background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    .zoom-controls {
+        top: 8px;
+        right: 8px;
+    }
+    
+    .zoom-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .zoom-btn .material-icons-outlined {
+        font-size: 1.125rem;
     }
     
     .floor-plan {
-        min-width: 800px;
-        padding: 20px;
-    }
-    
-    /* 添加縮放提示 */
-    .floor-plan-container::before {
-        content: "👆 左右滑動查看完整平面圖";
-        position: absolute;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: var(--md-sys-color-primary);
-        color: var(--md-sys-color-on-primary);
-        padding: 8px 16px;
-        border-radius: var(--md-sys-shape-corner-medium);
-        font-size: 0.75rem;
-        font-weight: 500;
-        z-index: 10;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        animation: fadeInOut 3s ease-in-out infinite;
-    }
-    
-    @keyframes fadeInOut {
-        0%, 100% { opacity: 0.8; }
-        50% { opacity: 1; }
-    }
-    
-    /* 調整座位大小以適應觸控 */
-=======
-    .search-header p {
-        font-size: 0.875rem;
-    }
-    .result-card {
         padding: 16px;
-    }
-    .table-columns-container {
-        flex-direction: column;
-        gap: 16px;
-    }
-    
-    .table-card[data-table="1"] .seats-grid {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        min-width: 280px;
-        min-height: 120px;
-    }
-    
-    .table-card[data-table="2"] .seats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        min-width: 100px;
-        min-height: 200px;
-    }
-    
-    .table-card[data-table="5"] .seats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        min-width: 100px;
-        min-height: 200px;
-    }
-    
->>>>>>> b372ebacca40d3324520df0652f27e72603620d5
-    .seat {
-        width: 35px;
-        height: 35px;
-        font-size: 0.7rem;
-<<<<<<< HEAD
-        min-width: 35px;
-        min-height: 35px;
-=======
->>>>>>> b372ebacca40d3324520df0652f27e72603620d5
-    }
-    
-    .floor-plan-legend {
-        gap: 16px;
     }
 }
 
 @media (max-width: 480px) {
-<<<<<<< HEAD
-    .floor-plan-container::before {
-        content: "👆 滑動查看平面圖";
-        font-size: 0.7rem;
-        padding: 6px 12px;
+    .floor-plan-viewport {
+        height: 300px;
     }
     
-    .seat {
+    .zoom-controls {
+        top: 4px;
+        right: 4px;
+        gap: 4px;
+    }
+    
+    .zoom-btn {
         width: 32px;
         height: 32px;
-        font-size: 0.65rem;
-        min-width: 32px;
-        min-height: 32px;
+    }
+    
+    .zoom-btn .material-icons-outlined {
+        font-size: 1rem;
     }
     
     .floor-plan {
-        min-width: 700px;
-        padding: 15px;
-=======
-    .table-card[data-table="1"] .seats-grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        min-width: 200px;
-        min-height: 100px;
-    }
-    
-    .seat {
-        width: 30px;
-        height: 30px;
-        font-size: 0.6rem;
->>>>>>> b372ebacca40d3324520df0652f27e72603620d5
+        padding: 8px;
     }
 }

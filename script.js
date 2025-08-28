@@ -99,17 +99,23 @@ const floorPlan = document.getElementById('floorPlan');
 // 當前搜尋到的賓客
 let currentGuest = null;
 
+// 初始化
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const resultCardContainer = document.getElementById('resultCard');
     const suggestionsList = document.getElementById('suggestionsList');
     const floorPlan = document.getElementById('floorPlan');
+    const floorPlanViewport = document.querySelector('.floor-plan-viewport');
+    const zoomInBtn = document.getElementById('zoomIn');
+    const zoomOutBtn = document.getElementById('zoomOut');
+    const resetViewBtn = document.getElementById('resetView');
     
     console.log('DOM loaded, elements found:', {
         searchInput: !!searchInput,
         resultCardContainer: !!resultCardContainer,
         suggestionsList: !!suggestionsList,
-        floorPlan: !!floorPlan
+        floorPlan: !!floorPlan,
+        floorPlanViewport: !!floorPlanViewport
     });
     
     // 賓客資料直接嵌入在 JavaScript 中
@@ -200,6 +206,115 @@ document.addEventListener('DOMContentLoaded', () => {
     let filteredGuests = [];
     let currentHighlightedGuest = null;
 
+    // 縮放和平移變數
+    let currentScale = 1;
+    let currentTranslateX = 0;
+    let currentTranslateY = 0;
+    let isDragging = false;
+    let lastMouseX = 0;
+    let lastMouseY = 0;
+    let lastTouchDistance = 0;
+
+    // 縮放和平移功能
+    function updateTransform() {
+        floorPlan.style.transform = `translate(${currentTranslateX}px, ${currentTranslateY}px) scale(${currentScale})`;
+    }
+
+    function zoomIn() {
+        currentScale = Math.min(currentScale * 1.2, 3);
+        updateTransform();
+    }
+
+    function zoomOut() {
+        currentScale = Math.max(currentScale / 1.2, 0.3);
+        updateTransform();
+    }
+
+    function resetView() {
+        currentScale = 1;
+        currentTranslateX = 0;
+        currentTranslateY = 0;
+        updateTransform();
+    }
+
+    // 滑鼠事件處理
+    function handleMouseDown(e) {
+        if (e.target.closest('.zoom-btn') || e.target.closest('.seat')) {
+            return;
+        }
+        isDragging = true;
+        lastMouseX = e.clientX;
+        lastMouseY = e.clientY;
+        floorPlanViewport.style.cursor = 'grabbing';
+    }
+
+    function handleMouseMove(e) {
+        if (!isDragging) return;
+        
+        const deltaX = e.clientX - lastMouseX;
+        const deltaY = e.clientY - lastMouseY;
+        
+        currentTranslateX += deltaX;
+        currentTranslateY += deltaY;
+        
+        lastMouseX = e.clientX;
+        lastMouseY = e.clientY;
+        
+        updateTransform();
+    }
+
+    function handleMouseUp() {
+        isDragging = false;
+        floorPlanViewport.style.cursor = 'grab';
+    }
+
+    // 觸控事件處理
+    function handleTouchStart(e) {
+        if (e.touches.length === 1) {
+            // 單指拖拽
+            const touch = e.touches[0];
+            lastMouseX = touch.clientX;
+            lastMouseY = touch.clientY;
+        } else if (e.touches.length === 2) {
+            // 雙指縮放
+            const touch1 = e.touches[0];
+            const touch2 = e.touches[1];
+            lastTouchDistance = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
+        }
+    }
+
+    function handleTouchMove(e) {
+        e.preventDefault();
+        
+        if (e.touches.length === 1) {
+            // 單指拖拽
+            const touch = e.touches[0];
+            const deltaX = touch.clientX - lastMouseX;
+            const deltaY = touch.clientY - lastMouseY;
+            
+            currentTranslateX += deltaX;
+            currentTranslateY += deltaY;
+            
+            lastMouseX = touch.clientX;
+            lastMouseY = touch.clientY;
+            
+            updateTransform();
+        } else if (e.touches.length === 2) {
+            // 雙指縮放
+            const touch1 = e.touches[0];
+            const touch2 = e.touches[1];
+            const currentDistance = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
+            
+            if (lastTouchDistance > 0) {
+                const scaleFactor = currentDistance / lastTouchDistance;
+                currentScale = Math.max(0.3, Math.min(3, currentScale * scaleFactor));
+                updateTransform();
+            }
+            
+            lastTouchDistance = currentDistance;
+        }
+    }
+
     // 生成座位平面圖
     function generateFloorPlan() {
         console.log('Generating floor plan...');
@@ -277,13 +392,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 seat.title = guest.name;
                 
                 // 添加點擊事件顯示賓客資訊
-                seat.addEventListener('click', () => {
+                seat.addEventListener('click', (e) => {
+                    e.stopPropagation();
                     displayResultCard('found', guest);
                     highlightSeat(guest);
                 });
-        } else {
+            } else {
                 // 空位點擊事件
-                seat.addEventListener('click', () => {
+                seat.addEventListener('click', (e) => {
+                    e.stopPropagation();
                     seat.style.transform = 'scale(0.95)';
                     setTimeout(() => {
                         seat.style.transform = '';
@@ -345,21 +462,21 @@ document.addEventListener('DOMContentLoaded', () => {
             hideSuggestions();
             displayResultCard('initial');
             clearHighlights();
-        return;
-    }
-    
+            return;
+        }
+
         // 模糊搜尋：包含搜尋詞的所有賓客
         filteredGuests = guestData.filter(guest => 
-        guest.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    
+            guest.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+
         console.log('Found guests:', filteredGuests.length, filteredGuests);
 
         if (filteredGuests.length > 0) {
             showSuggestions(filteredGuests);
             displayResultCard('initial'); // 隱藏結果卡片，顯示建議清單
             clearHighlights();
-    } else {
+        } else {
             hideSuggestions();
             displayResultCard('no-result', { name: searchTerm });
             clearHighlights();
@@ -470,6 +587,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // 縮放控制按鈕事件
+    zoomInBtn.addEventListener('click', zoomIn);
+    zoomOutBtn.addEventListener('click', zoomOut);
+    resetViewBtn.addEventListener('click', resetView);
+
+    // 滑鼠事件
+    floorPlanViewport.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+
+    // 觸控事件
+    floorPlanViewport.addEventListener('touchstart', handleTouchStart, { passive: false });
+    floorPlanViewport.addEventListener('touchmove', handleTouchMove, { passive: false });
+
     // 顯示結果卡片
     function displayResultCard(state, data = {}) {
         console.log('Displaying result card:', state, data);
@@ -533,149 +664,3 @@ document.addEventListener('DOMContentLoaded', () => {
     generateFloorPlan();
     displayResultCard('initial');
 });
-
-
-// 生成座位平面圖 - 直式排列配置
-function generateFloorPlan() {
-    floorPlan.innerHTML = '';
-    
-    // 最上面橫排12個位置 (桌號1)
-    const topRow = document.createElement('div');
-    topRow.className = 'table-row top-row';
-    const topTable = createTable("1", Array.from({length: 12}, (_, i) => (i + 1).toString()));
-    topRow.appendChild(topTable);
-    
-    // 主要區域 - 三條直排
-    const mainArea = document.createElement('div');
-    mainArea.className = 'main-area';
-    
-    // 最左邊直排 (桌號2: 14個位置, 桌號3: 6個位置)
-    const leftColumn = document.createElement('div');
-    leftColumn.className = 'table-column left-column';
-    const leftTable1 = createTable("2", Array.from({length: 14}, (_, i) => (i + 1).toString()));
-    const leftTable2 = createTable("3", Array.from({length: 6}, (_, i) => (i + 1).toString()));
-    leftColumn.appendChild(leftTable1);
-    leftColumn.appendChild(leftTable2);
-    
-    // 中間直排 (桌號4: 6個位置, 桌號5: 16個位置)
-    const centerColumn = document.createElement('div');
-    centerColumn.className = 'table-column center-column';
-    const centerTable1 = createTable("4", Array.from({length: 6}, (_, i) => (i + 1).toString()));
-    const centerTable2 = createTable("5", Array.from({length: 16}, (_, i) => (i + 1).toString()));
-    centerColumn.appendChild(centerTable1);
-    centerColumn.appendChild(centerTable2);
-    
-    // 最右邊直排 (桌號6: 10個位置, 桌號7: 10個位置)
-    const rightColumn = document.createElement('div');
-    rightColumn.className = 'table-column right-column';
-    const rightTable1 = createTable("6", Array.from({length: 10}, (_, i) => (i + 1).toString()));
-    const rightTable2 = createTable("7", Array.from({length: 10}, (_, i) => (i + 1).toString()));
-    rightColumn.appendChild(rightTable1);
-    rightColumn.appendChild(rightTable2);
-    
-    mainArea.appendChild(leftColumn);
-    mainArea.appendChild(centerColumn);
-    mainArea.appendChild(rightColumn);
-    
-    floorPlan.appendChild(topRow);
-    floorPlan.appendChild(mainArea);
-}
-
-// 創建單個桌子
-function createTable(tableNum, seats) {
-    const tableDiv = document.createElement('div');
-    tableDiv.className = 'table';
-    tableDiv.dataset.table = tableNum;
-    
-    const tableNumberDiv = document.createElement('div');
-    tableNumberDiv.className = 'table-number';
-    tableNumberDiv.textContent = `桌號 ${tableNum}`;
-    
-    const seatsDiv = document.createElement('div');
-    seatsDiv.className = 'seats';
-    
-    seats.forEach(seatCode => {
-        const seatDiv = document.createElement('div');
-        seatDiv.className = 'seat available';
-        seatDiv.textContent = seatCode;
-        seatDiv.dataset.seat = seatCode;
-        seatDiv.dataset.table = tableNum;
-        
-        // 檢查是否有賓客坐在這個位置
-        const guest = guestData.find(g => g.seatNumber === seatCode && g.tableNumber === tableNum);
-        if (guest) {
-            seatDiv.classList.remove('available');
-            seatDiv.classList.add('occupied');
-            seatDiv.title = guest.name;
-        }
-        
-        seatsDiv.appendChild(seatDiv);
-    });
-    
-    tableDiv.appendChild(tableNumberDiv);
-    tableDiv.appendChild(seatsDiv);
-    
-    return tableDiv;
-}
-
-// 高亮顯示座位
-function highlightSeat(guest) {
-    clearHighlights();
-    
-    const seatElement = document.querySelector(`[data-seat="${guest.seatNumber}"][data-table="${guest.tableNumber}"]`);
-    if (seatElement) {
-        seatElement.classList.remove('occupied');
-        seatElement.classList.add('highlighted');
-        
-        // 滾動到座位位置
-        seatElement.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center' 
-        });
-    }
-}
-
-// 清除所有高亮
-function clearHighlights() {
-    const highlightedSeats = document.querySelectorAll('.seat.highlighted');
-    highlightedSeats.forEach(seat => {
-        seat.classList.remove('highlighted');
-        // 恢復原本的狀態
-        const guest = guestData.find(g => 
-            g.seatNumber === seat.dataset.seat && 
-            g.tableNumber === seat.dataset.table
-        );
-        if (guest) {
-            seat.classList.add('occupied');
-        } else {
-            seat.classList.add('available');
-        }
-    });
-}
-
-// 添加一些動畫效果
-function addAnimationEffects() {
-    // 為搜尋按鈕添加點擊效果
-    searchBtn.addEventListener('click', function() {
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            this.style.transform = '';
-        }, 150);
-    });
-    
-    // 為座位添加懸停效果
-    document.addEventListener('mouseover', function(e) {
-        if (e.target.classList.contains('seat')) {
-            e.target.style.transform = 'scale(1.1)';
-        }
-    });
-    
-    document.addEventListener('mouseout', function(e) {
-        if (e.target.classList.contains('seat')) {
-            e.target.style.transform = '';
-        }
-    });
-}
-
-// 初始化動畫效果
-addAnimationEffects();
