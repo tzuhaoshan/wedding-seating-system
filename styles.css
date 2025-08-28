@@ -398,9 +398,8 @@ body {
 
 /* Overview View */
 .overview-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 16px;
+    display: flex;
+    justify-content: center;
     padding: 24px;
     background-color: var(--md-sys-color-surface-variant);
     border-radius: var(--md-sys-shape-corner-large);
@@ -408,7 +407,44 @@ body {
     min-height: 400px;
 }
 
-.overview-table {
+/* 原來的平面圖配置樣式 */
+.floor-plan {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    max-width: 100%;
+}
+
+/* 最上面橫排 */
+.top-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.top-row .overview-table-card {
+    max-width: 800px;
+}
+
+/* 主要區域 - 三條直排 */
+.main-area {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.table-column {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+
+/* 概覽桌次卡片 */
+.overview-table-card {
     background-color: var(--md-sys-color-surface);
     border-radius: var(--md-sys-shape-corner-medium);
     padding: 16px;
@@ -419,20 +455,21 @@ body {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
+    min-width: 120px;
 }
 
-.overview-table:hover {
+.overview-table-card:hover {
     box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
 }
 
-.overview-table.highlighted {
+.overview-table-card.highlighted {
     border-color: var(--md-sys-color-primary);
     background-color: var(--md-sys-color-primary-container);
     box-shadow: 0 4px 12px -2px rgba(103, 80, 164, 0.3);
 }
 
-.overview-table.highlighted::before {
+.overview-table-card.highlighted::before {
     content: '';
     position: absolute;
     top: 0;
@@ -452,14 +489,18 @@ body {
     }
 }
 
+.overview-table-header {
+    margin-bottom: 8px;
+}
+
 .overview-table-number {
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--md-sys-color-primary);
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
-.overview-table.highlighted .overview-table-number {
+.overview-table-card.highlighted .overview-table-number {
     color: var(--md-sys-color-on-primary-container);
 }
 
@@ -469,7 +510,7 @@ body {
     margin-bottom: 8px;
 }
 
-.overview-table.highlighted .overview-table-seats {
+.overview-table-card.highlighted .overview-table-seats {
     color: var(--md-sys-color-on-primary-container);
 }
 
@@ -482,7 +523,7 @@ body {
     display: inline-block;
 }
 
-.overview-table.highlighted .overview-table-status {
+.overview-table-card.highlighted .overview-table-status {
     background-color: var(--md-sys-color-primary);
     color: var(--md-sys-color-on-primary);
 }
@@ -712,17 +753,24 @@ body {
     }
     
     .overview-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 12px;
         padding: 16px;
     }
     
-    .overview-table {
+    .overview-table-card {
         padding: 12px;
+        min-width: 100px;
     }
     
     .overview-table-number {
         font-size: 1rem;
+    }
+    
+    .main-area {
+        gap: 20px;
+    }
+    
+    .table-column {
+        gap: 20px;
     }
     
     .detail-seats {
@@ -753,13 +801,12 @@ body {
 
 @media (max-width: 480px) {
     .overview-grid {
-        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-        gap: 8px;
         padding: 12px;
     }
     
-    .overview-table {
+    .overview-table-card {
         padding: 8px;
+        min-width: 80px;
     }
     
     .overview-table-number {
@@ -768,6 +815,14 @@ body {
     
     .overview-table-seats {
         font-size: 0.625rem;
+    }
+    
+    .main-area {
+        gap: 12px;
+    }
+    
+    .table-column {
+        gap: 12px;
     }
     
     .detail-seats-grid[data-table="1"] {

@@ -292,42 +292,76 @@ function displayResultCard(state, data = null) {
     resultCard.innerHTML = html;
 }
 
-// 生成概覽網格
+// 生成概覽網格 - 使用原來的平面圖配置
 function generateOverviewGrid() {
     const overviewGrid = document.getElementById('overviewGrid');
     overviewGrid.innerHTML = '';
     
-    // 統計每個桌次的賓客數量
-    const tableStats = {};
-    guestData.forEach(guest => {
-        if (!tableStats[guest.table]) {
-            tableStats[guest.table] = 0;
-        }
-        tableStats[guest.table]++;
+    // 使用原來的平面圖配置
+    const floorPlan = document.createElement('div');
+    floorPlan.className = 'floor-plan';
+    
+    // 最上面橫排 - 桌1
+    const topRow = document.createElement('div');
+    topRow.className = 'top-row';
+    const table1 = createOverviewTableCard(1);
+    topRow.appendChild(table1);
+    
+    // 主要區域 - 三條直排
+    const mainArea = document.createElement('div');
+    mainArea.className = 'main-area';
+    
+    // 左排 - 桌2, 桌3
+    const leftColumn = document.createElement('div');
+    leftColumn.className = 'table-column';
+    leftColumn.appendChild(createOverviewTableCard(2));
+    leftColumn.appendChild(createOverviewTableCard(3));
+    
+    // 中排 - 桌4, 桌5
+    const centerColumn = document.createElement('div');
+    centerColumn.className = 'table-column';
+    centerColumn.appendChild(createOverviewTableCard(4));
+    centerColumn.appendChild(createOverviewTableCard(5));
+    
+    // 右排 - 桌6, 桌7
+    const rightColumn = document.createElement('div');
+    rightColumn.className = 'table-column';
+    rightColumn.appendChild(createOverviewTableCard(6));
+    rightColumn.appendChild(createOverviewTableCard(7));
+    
+    mainArea.appendChild(leftColumn);
+    mainArea.appendChild(centerColumn);
+    mainArea.appendChild(rightColumn);
+    
+    floorPlan.appendChild(topRow);
+    floorPlan.appendChild(mainArea);
+    overviewGrid.appendChild(floorPlan);
+}
+
+// 創建概覽桌次卡片
+function createOverviewTableCard(tableNum) {
+    const tableCard = document.createElement('div');
+    tableCard.className = 'overview-table-card';
+    tableCard.dataset.table = tableNum;
+    
+    // 統計該桌次的賓客數量
+    const guestCount = guestData.filter(guest => guest.table === tableNum).length;
+    const maxSeats = getMaxSeatsForTable(tableNum);
+    
+    tableCard.innerHTML = `
+        <div class="overview-table-header">
+            <div class="overview-table-number">桌${tableNum}</div>
+            <div class="overview-table-seats">${guestCount}/${maxSeats}</div>
+        </div>
+        <div class="overview-table-status">${guestCount > 0 ? '已安排' : '空桌'}</div>
+    `;
+    
+    // 點擊事件 - 切換到詳細視圖
+    tableCard.addEventListener('click', function() {
+        showDetailView(tableNum);
     });
     
-    // 生成桌次卡片
-    for (let tableNum = 1; tableNum <= 7; tableNum++) {
-        const tableCard = document.createElement('div');
-        tableCard.className = 'overview-table';
-        tableCard.dataset.table = tableNum;
-        
-        const guestCount = tableStats[tableNum] || 0;
-        const maxSeats = getMaxSeatsForTable(tableNum);
-        
-        tableCard.innerHTML = `
-            <div class="overview-table-number">桌${tableNum}</div>
-            <div class="overview-table-seats">${guestCount}/${maxSeats} 座位</div>
-            <div class="overview-table-status">${guestCount > 0 ? '已安排' : '空桌'}</div>
-        `;
-        
-        // 點擊事件 - 切換到詳細視圖
-        tableCard.addEventListener('click', function() {
-            showDetailView(tableNum);
-        });
-        
-        overviewGrid.appendChild(tableCard);
-    }
+    return tableCard;
 }
 
 // 獲取桌次的最大座位數
@@ -347,12 +381,12 @@ function getMaxSeatsForTable(tableNum) {
 // 高亮賓客桌次
 function highlightGuestTable(guest) {
     // 清除所有高亮
-    document.querySelectorAll('.overview-table').forEach(table => {
+    document.querySelectorAll('.overview-table-card').forEach(table => {
         table.classList.remove('highlighted');
     });
     
     // 高亮對應桌次
-    const targetTable = document.querySelector(`.overview-table[data-table="${guest.table}"]`);
+    const targetTable = document.querySelector(`.overview-table-card[data-table="${guest.table}"]`);
     if (targetTable) {
         targetTable.classList.add('highlighted');
     }
@@ -360,7 +394,7 @@ function highlightGuestTable(guest) {
 
 // 清除所有高亮
 function clearHighlights() {
-    document.querySelectorAll('.overview-table').forEach(table => {
+    document.querySelectorAll('.overview-table-card').forEach(table => {
         table.classList.remove('highlighted');
     });
     document.querySelectorAll('.detail-seat').forEach(seat => {
@@ -462,3 +496,4 @@ function highlightGuestSeat(guest) {
         targetSeat.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 }
+
