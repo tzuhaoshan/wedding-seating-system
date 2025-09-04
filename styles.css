@@ -448,7 +448,7 @@ body {
 .overview-table-card {
     background-color: var(--md-sys-color-surface);
     border-radius: var(--md-sys-shape-corner-medium);
-    padding: 12px;
+    padding: 16px;
     text-align: center;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -456,42 +456,46 @@ body {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* 根據桌次設定不同的大小，與詳細查看保持一致 */
 .overview-table-card[data-table="1"] {
-    width: 200px;
-    height: 80px;
+    width: 220px;
+    height: 90px;
 }
 
 .overview-table-card[data-table="2"] {
-    width: 80px;
-    height: 200px;
+    width: 90px;
+    height: 220px;
 }
 
 .overview-table-card[data-table="3"] {
-    width: 80px;
-    height: 120px;
+    width: 90px;
+    height: 140px;
 }
 
 .overview-table-card[data-table="4"] {
-    width: 80px;
-    height: 120px;
+    width: 90px;
+    height: 140px;
 }
 
 .overview-table-card[data-table="5"] {
-    width: 80px;
-    height: 240px;
+    width: 90px;
+    height: 260px;
 }
 
 .overview-table-card[data-table="6"] {
-    width: 80px;
-    height: 160px;
+    width: 90px;
+    height: 180px;
 }
 
 .overview-table-card[data-table="7"] {
-    width: 80px;
-    height: 160px;
+    width: 90px;
+    height: 180px;
 }
 .overview-table-card:hover {
     box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.1);
@@ -525,14 +529,15 @@ body {
 }
 
 .overview-table-header {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .overview-table-number {
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--md-sys-color-primary);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    line-height: 1.2;
 }
 
 .overview-table-card.highlighted .overview-table-number {
@@ -540,9 +545,10 @@ body {
 }
 
 .overview-table-seats {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     color: var(--md-sys-color-on-surface-variant);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    line-height: 1.2;
 }
 
 .overview-table-card.highlighted .overview-table-seats {
@@ -550,12 +556,13 @@ body {
 }
 
 .overview-table-status {
-    font-size: 0.625rem;
-    padding: 2px 6px;
-    border-radius: 4px;
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 6px;
     background-color: var(--md-sys-color-surface-variant);
     color: var(--md-sys-color-on-surface-variant);
     display: inline-block;
+    line-height: 1.2;
 }
 
 .overview-table-card.highlighted .overview-table-status {
@@ -799,43 +806,43 @@ body {
     }
     
     .overview-table-card {
-        padding: 10px;
+        padding: 12px;
     }
     
     /* 平板版桌子大小調整 */
     .overview-table-card[data-table="1"] {
-        width: 160px;
-        height: 64px;
+        width: 180px;
+        height: 72px;
     }
     
     .overview-table-card[data-table="2"] {
-        width: 64px;
-        height: 160px;
+        width: 72px;
+        height: 180px;
     }
     
     .overview-table-card[data-table="3"] {
-        width: 64px;
-        height: 96px;
+        width: 72px;
+        height: 112px;
     }
     
     .overview-table-card[data-table="4"] {
-        width: 64px;
-        height: 96px;
+        width: 72px;
+        height: 112px;
     }
     
     .overview-table-card[data-table="5"] {
-        width: 64px;
-        height: 192px;
+        width: 72px;
+        height: 208px;
     }
     
     .overview-table-card[data-table="6"] {
-        width: 64px;
-        height: 128px;
+        width: 72px;
+        height: 144px;
     }
     
     .overview-table-card[data-table="7"] {
-        width: 64px;
-        height: 128px;
+        width: 72px;
+        height: 144px;
     }
     
     .overview-table-number {
@@ -920,43 +927,43 @@ body {
     }
     
     .overview-table-card {
-        padding: 8px;
+        padding: 10px;
     }
     
     /* 手機版桌子大小調整 */
     .overview-table-card[data-table="1"] {
-        width: 120px;
-        height: 48px;
+        width: 140px;
+        height: 56px;
     }
     
     .overview-table-card[data-table="2"] {
-        width: 48px;
-        height: 120px;
+        width: 56px;
+        height: 140px;
     }
     
     .overview-table-card[data-table="3"] {
-        width: 48px;
-        height: 72px;
+        width: 56px;
+        height: 84px;
     }
     
     .overview-table-card[data-table="4"] {
-        width: 48px;
-        height: 72px;
+        width: 56px;
+        height: 84px;
     }
     
     .overview-table-card[data-table="5"] {
-        width: 48px;
-        height: 144px;
+        width: 56px;
+        height: 168px;
     }
     
     .overview-table-card[data-table="6"] {
-        width: 48px;
-        height: 96px;
+        width: 56px;
+        height: 112px;
     }
     
     .overview-table-card[data-table="7"] {
-        width: 48px;
-        height: 96px;
+        width: 56px;
+        height: 112px;
     }
     
     .overview-table-number {
