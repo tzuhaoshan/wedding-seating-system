@@ -62,13 +62,25 @@
                 
                 <!-- 詳細座位視圖 -->
                 <div id="detailView" class="floor-plan-view">
-                    <div class="detail-container">
-                        <div class="detail-header">
-                            <h3 id="detailTableTitle">桌次詳細圖</h3>
-                            <p id="detailTableSubtitle">點擊座位查看賓客資訊</p>
+                    <div class="detail-layout">
+                        <div class="detail-seats-section">
+                            <div class="detail-header">
+                                <h3 id="detailTableTitle">桌次詳細圖</h3>
+                                <p id="detailTableSubtitle">點擊座位查看賓客資訊</p>
+                            </div>
+                            <div class="detail-seats" id="detailSeats">
+                                <!-- 詳細座位將由 JavaScript 動態生成 -->
+                            </div>
                         </div>
-                        <div class="detail-seats" id="detailSeats">
-                            <!-- 詳細座位將由 JavaScript 動態生成 -->
+                        
+                        <div class="detail-guest-info" id="detailGuestInfo">
+                            <div class="guest-info-header">
+                                <span class="material-icons-outlined">person</span>
+                                <h4>賓客資訊</h4>
+                            </div>
+                            <div class="guest-info-content">
+                                <p class="guest-info-placeholder">點擊座位查看賓客資訊</p>
+                            </div>
                         </div>
                     </div>
                 </div>
