@@ -33,23 +33,44 @@
             <!-- 搜尋結果將動態插入此處 -->
         </div>
 
-        <!-- 視覺化座位平面圖 -->
+        <!-- 兩階段座位平面圖 -->
         <div class="floor-plan-section">
             <div class="floor-plan-header">
                 <h2>座位平面圖</h2>
-                <p>點擊座位可查看詳細資訊</p>
-<<<<<<< HEAD
-                <div class="mobile-instruction" style="display: none;">
-                    <span class="material-icons-outlined">touch_app</span>
-                    <span>在手機上左右滑動可查看完整平面圖</span>
+                <p id="floorPlanDescription">點擊桌次可查看詳細座位</p>
+            </div>
+            
+            <!-- 視圖切換控制 -->
+            <div class="view-controls" id="viewControls" style="display: none;">
+                <button id="backToOverview" class="view-btn">
+                    <span class="material-icons-outlined">arrow_back</span>
+                    <span>返回概覽</span>
+                </button>
+                <div class="view-info">
+                    <span class="material-icons-outlined">table_restaurant</span>
+                    <span id="currentTableInfo">桌次概覽</span>
                 </div>
-=======
->>>>>>> b372ebacca40d3324520df0652f27e72603620d5
             </div>
             
             <div class="floor-plan-container">
-                <div id="floorPlan" class="floor-plan">
-                    <!-- 座位平面圖將由 JavaScript 動態生成 -->
+                <!-- 整體概覽視圖 -->
+                <div id="overviewView" class="floor-plan-view active">
+                    <div class="overview-grid" id="overviewGrid">
+                        <!-- 整體概覽將由 JavaScript 動態生成 -->
+                    </div>
+                </div>
+                
+                <!-- 詳細座位視圖 -->
+                <div id="detailView" class="floor-plan-view">
+                    <div class="detail-container">
+                        <div class="detail-header">
+                            <h3 id="detailTableTitle">桌次詳細圖</h3>
+                            <p id="detailTableSubtitle">點擊座位查看賓客資訊</p>
+                        </div>
+                        <div class="detail-seats" id="detailSeats">
+                            <!-- 詳細座位將由 JavaScript 動態生成 -->
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -65,6 +86,10 @@
                 <div class="legend-item">
                     <div class="legend-color highlighted"></div>
                     <span>您的座位</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color table-highlighted"></div>
+                    <span>您的桌次</span>
                 </div>
             </div>
         </div>
