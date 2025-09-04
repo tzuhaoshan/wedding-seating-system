@@ -354,11 +354,7 @@ function createOverviewTableCard(tableNum) {
     const maxSeats = getMaxSeatsForTable(tableNum);
     
     tableCard.innerHTML = `
-        <div class="overview-table-header">
-            <div class="overview-table-number">桌${tableNum}</div>
-            <div class="overview-table-seats">${guestCount}/${maxSeats}</div>
-        </div>
-        <div class="overview-table-status">${guestCount > 0 ? '已安排' : '空桌'}</div>
+        <div class="overview-table-number">桌${tableNum}</div>
     `;
     
     // 點擊事件 - 切換到詳細視圖

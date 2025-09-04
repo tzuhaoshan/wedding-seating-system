@@ -448,7 +448,7 @@ body {
 .overview-table-card {
     background-color: var(--md-sys-color-surface);
     border-radius: var(--md-sys-shape-corner-medium);
-    padding: 16px;
+    padding: 12px;
     text-align: center;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -458,7 +458,7 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 }
 
@@ -528,46 +528,16 @@ body {
     }
 }
 
-.overview-table-header {
-    margin-bottom: 10px;
-}
-
 .overview-table-number {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--md-sys-color-primary);
-    margin-bottom: 6px;
     line-height: 1.2;
+    text-align: center;
 }
 
 .overview-table-card.highlighted .overview-table-number {
     color: var(--md-sys-color-on-primary-container);
-}
-
-.overview-table-seats {
-    font-size: 0.875rem;
-    color: var(--md-sys-color-on-surface-variant);
-    margin-bottom: 10px;
-    line-height: 1.2;
-}
-
-.overview-table-card.highlighted .overview-table-seats {
-    color: var(--md-sys-color-on-primary-container);
-}
-
-.overview-table-status {
-    font-size: 0.75rem;
-    padding: 4px 8px;
-    border-radius: 6px;
-    background-color: var(--md-sys-color-surface-variant);
-    color: var(--md-sys-color-on-surface-variant);
-    display: inline-block;
-    line-height: 1.2;
-}
-
-.overview-table-card.highlighted .overview-table-status {
-    background-color: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
 }
 
 /* Detail View */
@@ -806,7 +776,7 @@ body {
     }
     
     .overview-table-card {
-        padding: 12px;
+        padding: 8px;
     }
     
     /* 平板版桌子大小調整 */
@@ -927,7 +897,7 @@ body {
     }
     
     .overview-table-card {
-        padding: 10px;
+        padding: 6px;
     }
     
     /* 手機版桌子大小調整 */
@@ -968,9 +938,6 @@ body {
     
     .overview-table-number {
         font-size: 0.875rem;
-    }
-    .overview-table-seats {
-        font-size: 0.625rem;
     }
     
     .main-area {
