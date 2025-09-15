@@ -444,54 +444,54 @@ body {
     align-items: center;
 }
 
-/* 根據桌次設定不同的大小，反映實際桌子大小 */
-/* A7桌 - 菱形，4個座位（最小） */
+/* 根據桌次設定不同的大小，反映實際座位排列 */
+/* A7桌 - 菱形，4個座位 */
 .overview-table-card[data-table="A7"] {
     width: 80px;
     height: 80px;
     border-radius: 50%;
 }
 
-/* B8桌 - 12個座位（較長） */
+/* B8桌 - 橫排 6×2，12個座位（橫向長桌） */
 .overview-table-card[data-table="B8"] {
-    width: 200px;
-    height: 80px;
-}
-
-/* B2桌 - 14個座位（最長） */
-.overview-table-card[data-table="B2"] {
     width: 240px;
     height: 80px;
 }
 
-/* A2桌 - 10個座位（中等長度） */
+/* B2桌 - 直排 2×7，14個座位（縱向長桌） */
+.overview-table-card[data-table="B2"] {
+    width: 80px;
+    height: 280px;
+}
+
+/* A2桌 - 直排 2×5，10個座位（縱向長桌） */
 .overview-table-card[data-table="A2"] {
-    width: 180px;
-    height: 80px;
+    width: 80px;
+    height: 200px;
 }
 
-/* C2桌 - 10個座位（中等長度） */
+/* C2桌 - 直排 2×5，10個座位（縱向長桌） */
 .overview-table-card[data-table="C2"] {
-    width: 180px;
-    height: 80px;
+    width: 80px;
+    height: 200px;
 }
 
-/* C1桌 - 10個座位（中等長度） */
+/* C1桌 - 直排 2×5，10個座位（縱向長桌） */
 .overview-table-card[data-table="C1"] {
-    width: 180px;
-    height: 80px;
+    width: 80px;
+    height: 200px;
 }
 
-/* A1桌 - 8個座位（中等） */
+/* A1桌 - 直排 2×4，8個座位（縱向長桌） */
 .overview-table-card[data-table="A1"] {
-    width: 160px;
-    height: 80px;
+    width: 80px;
+    height: 160px;
 }
 
-/* B1桌 - 6個座位（較短） */
+/* B1桌 - 直排 2×3，6個座位（縱向長桌） */
 .overview-table-card[data-table="B1"] {
-    width: 120px;
-    height: 80px;
+    width: 80px;
+    height: 120px;
 }
 .overview-table-card:hover {
     box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.1);
@@ -914,38 +914,38 @@ body {
     }
     
     .overview-table-card[data-table="B8"] {
-        width: 160px;
+        width: 180px;
         height: 60px;
     }
     
     .overview-table-card[data-table="B2"] {
-        width: 200px;
-        height: 60px;
+        width: 60px;
+        height: 210px;
     }
     
     .overview-table-card[data-table="A2"] {
-        width: 140px;
-        height: 60px;
+        width: 60px;
+        height: 150px;
     }
     
     .overview-table-card[data-table="C2"] {
-        width: 140px;
-        height: 60px;
+        width: 60px;
+        height: 150px;
     }
     
     .overview-table-card[data-table="C1"] {
-        width: 140px;
-        height: 60px;
+        width: 60px;
+        height: 150px;
     }
     
     .overview-table-card[data-table="A1"] {
-        width: 120px;
-        height: 60px;
+        width: 60px;
+        height: 120px;
     }
     
     .overview-table-card[data-table="B1"] {
-        width: 100px;
-        height: 60px;
+        width: 60px;
+        height: 90px;
     }
     
     .overview-table-number {
@@ -1036,38 +1036,38 @@ body {
     }
     
     .overview-table-card[data-table="B8"] {
-        width: 120px;
-        height: 50px;
-    }
-    
-    .overview-table-card[data-table="B2"] {
         width: 150px;
         height: 50px;
     }
     
+    .overview-table-card[data-table="B2"] {
+        width: 50px;
+        height: 175px;
+    }
+    
     .overview-table-card[data-table="A2"] {
-        width: 110px;
-        height: 50px;
+        width: 50px;
+        height: 125px;
     }
     
     .overview-table-card[data-table="C2"] {
-        width: 110px;
-        height: 50px;
+        width: 50px;
+        height: 125px;
     }
     
     .overview-table-card[data-table="C1"] {
-        width: 110px;
-        height: 50px;
+        width: 50px;
+        height: 125px;
     }
     
     .overview-table-card[data-table="A1"] {
-        width: 90px;
-        height: 50px;
+        width: 50px;
+        height: 100px;
     }
     
     .overview-table-card[data-table="B1"] {
-        width: 80px;
-        height: 50px;
+        width: 50px;
+        height: 75px;
     }
     
     .overview-table-number {
