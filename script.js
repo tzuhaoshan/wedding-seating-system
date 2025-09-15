@@ -389,9 +389,11 @@ function generateDetailSeats(tableNum) {
     
     // 根據桌次設定不同的座位排列
     let seatLayout = getSeatLayout(tableNum);
+    let seatNumbers = getSeatNumbers(tableNum);
     
     // 生成座位
-    for (let seatNum = 1; seatNum <= maxSeats; seatNum++) {
+    for (let i = 0; i < seatNumbers.length; i++) {
+        const seatNum = seatNumbers[i];
         const seat = document.createElement('div');
         seat.className = 'detail-seat';
         seat.dataset.seat = seatNum;
@@ -440,6 +442,21 @@ function getSeatLayout(tableNum) {
         'B1': { type: 'vertical', rows: 3, cols: 2 }  // 直排 2×3
     };
     return layouts[tableNum] || { type: 'vertical', rows: 1, cols: 1 };
+}
+
+// 獲取桌次的座位編號順序（根據平面圖）
+function getSeatNumbers(tableNum) {
+    const seatNumbers = {
+        'A7': [1, 2, 3, 4], // 菱形桌，4個座位
+        'B8': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], // 橫排 6×2，上方1-6，下方7-12
+        'B2': [1, 8, 2, 9, 3, 10, 4, 11, 5, 12, 6, 13, 7, 14], // 直排 2×7，左側1-7，右側8-14
+        'A2': [1, 6, 2, 7, 3, 8, 4, 9, 5, 10], // 直排 2×5，左側1-5，右側6-10
+        'C2': [1, 6, 2, 7, 3, 8, 4, 9, 5, 10], // 直排 2×5，左側1-5，右側6-10
+        'C1': [1, 6, 2, 7, 3, 8, 4, 9, 5, 10], // 直排 2×5，左側1-5，右側6-10
+        'A1': [1, 5, 2, 6, 3, 7, 4, 8], // 直排 2×4，左側1-4，右側5-8
+        'B1': [1, 4, 2, 5, 3, 6] // 直排 2×3，左側1-3，右側4-6
+    };
+    return seatNumbers[tableNum] || [];
 }
 
 // 顯示賓客資訊
