@@ -413,12 +413,15 @@ function generateDetailSeats(tableNum) {
         
         // 點擊事件
         seat.addEventListener('click', function() {
+            console.log('座位被點擊:', tableNum, seatNum, guest);
             if (guest && guest.name.trim() !== '') {
+                console.log('顯示賓客名字:', guest.name);
                 // 顯示懸浮賓客名字
                 showFloatingGuestName(seat, guest);
                 currentGuest = guest;
                 highlightGuestSeat(guest);
             } else {
+                console.log('顯示空位資訊');
                 // 顯示懸浮空位資訊
                 showFloatingEmptySeatInfo(seat, tableNum, seatNum);
             }
@@ -463,6 +466,8 @@ function getSeatNumbers(tableNum) {
 
 // 顯示懸浮賓客名字
 function showFloatingGuestName(seatElement, guest) {
+    console.log('showFloatingGuestName 被調用:', guest.name);
+    
     // 移除現有的懸浮提示
     removeExistingTooltips();
     
@@ -471,22 +476,26 @@ function showFloatingGuestName(seatElement, guest) {
     tooltip.className = 'seat-tooltip';
     tooltip.textContent = guest.name;
     
-    // 將提示添加到座位元素
-    seatElement.style.position = 'relative';
-    seatElement.appendChild(tooltip);
+    // 將提示添加到 body，使用絕對定位
+    document.body.appendChild(tooltip);
     
-    // 計算提示位置
+    // 計算座位位置
     const seatRect = seatElement.getBoundingClientRect();
-    const tooltipRect = tooltip.getBoundingClientRect();
+    console.log('座位位置:', seatRect);
     
     // 設置提示位置（在座位上方）
-    tooltip.style.left = '50%';
-    tooltip.style.top = '-45px';
+    tooltip.style.position = 'fixed';
+    tooltip.style.left = (seatRect.left + seatRect.width / 2) + 'px';
+    tooltip.style.top = (seatRect.top - 50) + 'px';
     tooltip.style.transform = 'translateX(-50%)';
+    tooltip.style.zIndex = '1000';
+    
+    console.log('懸浮提示位置:', tooltip.style.left, tooltip.style.top);
     
     // 顯示提示
     setTimeout(() => {
         tooltip.classList.add('show');
+        console.log('懸浮提示已顯示');
     }, 10);
     
     // 3秒後自動隱藏
@@ -505,14 +514,18 @@ function showFloatingEmptySeatInfo(seatElement, tableNum, seatNum) {
     tooltip.className = 'seat-tooltip';
     tooltip.textContent = `空位 - 桌${tableNum} 座位${seatNum}`;
     
-    // 將提示添加到座位元素
-    seatElement.style.position = 'relative';
-    seatElement.appendChild(tooltip);
+    // 將提示添加到 body，使用絕對定位
+    document.body.appendChild(tooltip);
+    
+    // 計算座位位置
+    const seatRect = seatElement.getBoundingClientRect();
     
     // 設置提示位置（在座位上方）
-    tooltip.style.left = '50%';
-    tooltip.style.top = '-45px';
+    tooltip.style.position = 'fixed';
+    tooltip.style.left = (seatRect.left + seatRect.width / 2) + 'px';
+    tooltip.style.top = (seatRect.top - 50) + 'px';
     tooltip.style.transform = 'translateX(-50%)';
+    tooltip.style.zIndex = '1000';
     
     // 顯示提示
     setTimeout(() => {
