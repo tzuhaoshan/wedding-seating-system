@@ -231,7 +231,7 @@ function displayResultCard(state, data = null) {
     resultCard.innerHTML = html;
 }
 
-// 生成概覽網格 - 根據平面圖實際佈局配置
+// 生成概覽網格 - 根據正確的平面圖佈局配置
 function generateOverviewGrid() {
     const overviewGrid = document.getElementById('overviewGrid');
     overviewGrid.innerHTML = '';
@@ -240,41 +240,34 @@ function generateOverviewGrid() {
     const floorPlan = document.createElement('div');
     floorPlan.className = 'floor-plan';
     
-    // 最上面橫排 - A7桌（菱形桌）
-    const topRow = document.createElement('div');
-    topRow.className = 'top-row';
-    const tableA7 = createOverviewTableCard('A7');
-    topRow.appendChild(tableA7);
+    // 第一排 - 只有 B8桌
+    const firstRow = document.createElement('div');
+    firstRow.className = 'floor-row';
+    firstRow.appendChild(createOverviewTableCard('B8'));
     
-    // 主要區域 - 三條直排
-    const mainArea = document.createElement('div');
-    mainArea.className = 'main-area';
+    // 第二排 - A7, B2, C2
+    const secondRow = document.createElement('div');
+    secondRow.className = 'floor-row';
+    secondRow.appendChild(createOverviewTableCard('A7'));
+    secondRow.appendChild(createOverviewTableCard('B2'));
+    secondRow.appendChild(createOverviewTableCard('C2'));
     
-    // 左排 - A2, A1（從上到下）
-    const leftColumn = document.createElement('div');
-    leftColumn.className = 'table-column';
-    leftColumn.appendChild(createOverviewTableCard('A2'));
-    leftColumn.appendChild(createOverviewTableCard('A1'));
+    // 第三排 - A2, B1, C1
+    const thirdRow = document.createElement('div');
+    thirdRow.className = 'floor-row';
+    thirdRow.appendChild(createOverviewTableCard('A2'));
+    thirdRow.appendChild(createOverviewTableCard('B1'));
+    thirdRow.appendChild(createOverviewTableCard('C1'));
     
-    // 中排 - B8, B2, B1（從上到下）
-    const centerColumn = document.createElement('div');
-    centerColumn.className = 'table-column';
-    centerColumn.appendChild(createOverviewTableCard('B8'));
-    centerColumn.appendChild(createOverviewTableCard('B2'));
-    centerColumn.appendChild(createOverviewTableCard('B1'));
+    // 第四排 - 只有 A1桌
+    const fourthRow = document.createElement('div');
+    fourthRow.className = 'floor-row';
+    fourthRow.appendChild(createOverviewTableCard('A1'));
     
-    // 右排 - C2, C1（從上到下）
-    const rightColumn = document.createElement('div');
-    rightColumn.className = 'table-column';
-    rightColumn.appendChild(createOverviewTableCard('C2'));
-    rightColumn.appendChild(createOverviewTableCard('C1'));
-    
-    mainArea.appendChild(leftColumn);
-    mainArea.appendChild(centerColumn);
-    mainArea.appendChild(rightColumn);
-    
-    floorPlan.appendChild(topRow);
-    floorPlan.appendChild(mainArea);
+    floorPlan.appendChild(firstRow);
+    floorPlan.appendChild(secondRow);
+    floorPlan.appendChild(thirdRow);
+    floorPlan.appendChild(fourthRow);
     overviewGrid.appendChild(floorPlan);
 }
 
