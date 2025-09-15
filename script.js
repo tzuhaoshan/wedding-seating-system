@@ -387,6 +387,9 @@ function generateDetailSeats(tableNum) {
     seatsGrid.className = 'detail-seats-grid';
     seatsGrid.dataset.table = tableNum;
     
+    // 根據桌次設定不同的座位排列
+    let seatLayout = getSeatLayout(tableNum);
+    
     // 生成座位
     for (let seatNum = 1; seatNum <= maxSeats; seatNum++) {
         const seat = document.createElement('div');
@@ -422,6 +425,21 @@ function generateDetailSeats(tableNum) {
     
     detailSeats.innerHTML = '';
     detailSeats.appendChild(seatsGrid);
+}
+
+// 獲取桌次的座位排列配置
+function getSeatLayout(tableNum) {
+    const layouts = {
+        'A7': { type: 'diamond', rows: 2, cols: 2 }, // 菱形桌
+        'B8': { type: 'horizontal', rows: 2, cols: 6 }, // 橫排 6×2
+        'B2': { type: 'vertical', rows: 7, cols: 2 }, // 直排 2×7
+        'A2': { type: 'vertical', rows: 5, cols: 2 }, // 直排 2×5
+        'C2': { type: 'vertical', rows: 5, cols: 2 }, // 直排 2×5
+        'C1': { type: 'vertical', rows: 5, cols: 2 }, // 直排 2×5
+        'A1': { type: 'vertical', rows: 4, cols: 2 }, // 直排 2×4
+        'B1': { type: 'vertical', rows: 3, cols: 2 }  // 直排 2×3
+    };
+    return layouts[tableNum] || { type: 'vertical', rows: 1, cols: 1 };
 }
 
 // 顯示賓客資訊
