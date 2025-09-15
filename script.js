@@ -1,83 +1,16 @@
-// 賓客資料
-const guestData = [
-    { "name": "子豪爸爸", "seatNumber": "1", "tableNumber": "1" },
-    { "name": "子豪媽媽", "seatNumber": "2", "tableNumber": "1" },
-    { "name": "子豪", "seatNumber": "3", "tableNumber": "1" },
-    { "name": "瀞瀅", "seatNumber": "4", "tableNumber": "1" },
-    { "name": "瀞瀅媽媽", "seatNumber": "5", "tableNumber": "1" },
-    { "name": "瀞瀅爸爸", "seatNumber": "6", "tableNumber": "1" },
-    { "name": "子豪阿公", "seatNumber": "7", "tableNumber": "1" },
-    { "name": "子豪阿嬤", "seatNumber": "8", "tableNumber": "1" },
-    { "name": "子豪阿嬤2", "seatNumber": "9", "tableNumber": "1" },
-    { "name": "子豪姑姑", "seatNumber": "10", "tableNumber": "1" },
-    { "name": "子豪姑丈", "seatNumber": "11", "tableNumber": "1" },
-    { "name": "子豪叔叔", "seatNumber": "12", "tableNumber": "1" },
-    
-    { "name": "楊俊佑院長", "seatNumber": "1", "tableNumber": "2" },
-    { "name": "高雅慧老師", "seatNumber": "2", "tableNumber": "2" },
-    { "name": "李莘", "seatNumber": "3", "tableNumber": "2" },
-    { "name": "花筠庭", "seatNumber": "4", "tableNumber": "2" },
-    { "name": "陳姿穎", "seatNumber": "5", "tableNumber": "2" },
-    { "name": "胡嘉倩", "seatNumber": "6", "tableNumber": "2" },
-    { "name": "黎孟勳", "seatNumber": "7", "tableNumber": "2" },
-    { "name": "趙子揚", "seatNumber": "8", "tableNumber": "2" },
-    { "name": "張嘉璇", "seatNumber": "9", "tableNumber": "2" },
-    { "name": "陳姿樺", "seatNumber": "10", "tableNumber": "2" },
-    { "name": "阮垂蓉", "seatNumber": "11", "tableNumber": "2" },
-    { "name": "邱詠庭", "seatNumber": "12", "tableNumber": "2" },
-    { "name": "黃元佑", "seatNumber": "13", "tableNumber": "2" },
-    { "name": "蘇子廷", "seatNumber": "14", "tableNumber": "2" },
-    
-    { "name": "周伊謙", "seatNumber": "1", "tableNumber": "3" },
-    { "name": "李宥菁", "seatNumber": "2", "tableNumber": "3" },
-    { "name": "施佳亨", "seatNumber": "3", "tableNumber": "3" },
-    { "name": "葉睿穎", "seatNumber": "4", "tableNumber": "3" },
-    { "name": "劉書丞", "seatNumber": "5", "tableNumber": "3" },
-    { "name": "劉宗翰", "seatNumber": "6", "tableNumber": "3" },
-    
-    { "name": "子恩", "seatNumber": "1", "tableNumber": "4" },
-    { "name": "蝌蚪", "seatNumber": "2", "tableNumber": "4" },
-    { "name": "子豪大舅", "seatNumber": "3", "tableNumber": "4" },
-    { "name": "鈴瀅", "seatNumber": "4", "tableNumber": "4" },
-    { "name": "子豪阿姨", "seatNumber": "5", "tableNumber": "4" },
-    { "name": "子豪大舅媽", "seatNumber": "6", "tableNumber": "4" },
-    
-    { "name": "方", "seatNumber": "1", "tableNumber": "5" },
-    { "name": "謝", "seatNumber": "2", "tableNumber": "5" },
-    { "name": "進財", "seatNumber": "3", "tableNumber": "5" },
-    { "name": "賴", "seatNumber": "4", "tableNumber": "5" },
-    { "name": "勝利", "seatNumber": "5", "tableNumber": "5" },
-    { "name": "蕭", "seatNumber": "6", "tableNumber": "5" },
-    { "name": "堃", "seatNumber": "7", "tableNumber": "5" },
-    { "name": "金安", "seatNumber": "8", "tableNumber": "5" },
-    { "name": "方", "seatNumber": "9", "tableNumber": "5" },
-    { "name": "謝", "seatNumber": "10", "tableNumber": "5" },
-    { "name": "謝", "seatNumber": "11", "tableNumber": "5" },
-    { "name": "賴", "seatNumber": "12", "tableNumber": "5" },
-    { "name": "進村", "seatNumber": "13", "tableNumber": "5" },
-    { "name": "蕭", "seatNumber": "14", "tableNumber": "5" },
-    { "name": "堃", "seatNumber": "15", "tableNumber": "5" },
-    { "name": "金安", "seatNumber": "16", "tableNumber": "5" },
-    
-    { "name": "小舅", "seatNumber": "1", "tableNumber": "6" },
-    { "name": "小舅", "seatNumber": "2", "tableNumber": "6" },
-    { "name": "小舅", "seatNumber": "3", "tableNumber": "6" },
-    { "name": "益民", "seatNumber": "4", "tableNumber": "6" },
-    { "name": "元智", "seatNumber": "5", "tableNumber": "6" },
-    { "name": "小舅", "seatNumber": "6", "tableNumber": "6" },
-    { "name": "小舅", "seatNumber": "7", "tableNumber": "6" },
-    { "name": "宇翔", "seatNumber": "8", "tableNumber": "6" },
-    { "name": "益民", "seatNumber": "9", "tableNumber": "6" },
-    { "name": "元智", "seatNumber": "10", "tableNumber": "6" },
-    
-    { "name": "雷", "seatNumber": "1", "tableNumber": "7" },
-    { "name": "愛芸", "seatNumber": "2", "tableNumber": "7" },
-    { "name": "助理", "seatNumber": "3", "tableNumber": "7" },
-    { "name": "助理", "seatNumber": "4", "tableNumber": "7" },
-    { "name": "宗哲", "seatNumber": "5", "tableNumber": "7" },
-    { "name": "顥宜", "seatNumber": "6", "tableNumber": "7" },
-    { "name": "助理", "seatNumber": "7", "tableNumber": "7" }
-];
+// 賓客資料 - 從 guests.json 載入
+let guestData = [];
+
+// 載入賓客資料
+async function loadGuestData() {
+    try {
+        const response = await fetch('guests.json');
+        guestData = await response.json();
+    } catch (error) {
+        console.error('載入賓客資料失敗:', error);
+        guestData = [];
+    }
+}
 
 // DOM 元素
 let searchInput, suggestionsList, resultCard, overviewView, detailView, viewControls;
@@ -85,7 +18,8 @@ let currentGuest = null;
 let filteredGuests = [];
 
 // 初始化
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
+    await loadGuestData();
     initializeElements();
     setupEventListeners();
     generateOverviewGrid();
@@ -183,7 +117,7 @@ function debounce(func, wait) {
 // 執行搜尋
 function performSearch(searchTerm) {
     filteredGuests = guestData.filter(guest => 
-        guest.name.toLowerCase().includes(searchTerm.toLowerCase())
+        guest.name && guest.name.trim() !== '' && guest.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     
     if (filteredGuests.length > 0) {
@@ -297,42 +231,43 @@ function displayResultCard(state, data = null) {
     resultCard.innerHTML = html;
 }
 
-// 生成概覽網格 - 使用原來的平面圖配置
+// 生成概覽網格 - 根據新平面圖配置
 function generateOverviewGrid() {
     const overviewGrid = document.getElementById('overviewGrid');
     overviewGrid.innerHTML = '';
     
-    // 使用原來的平面圖配置
+    // 根據平面圖創建配置
     const floorPlan = document.createElement('div');
     floorPlan.className = 'floor-plan';
     
-    // 最上面橫排 - 桌1
+    // 最上面橫排 - A7桌（菱形桌）
     const topRow = document.createElement('div');
     topRow.className = 'top-row';
-    const table1 = createOverviewTableCard(1);
-    topRow.appendChild(table1);
+    const tableA7 = createOverviewTableCard('A7');
+    topRow.appendChild(tableA7);
     
     // 主要區域 - 三條直排
     const mainArea = document.createElement('div');
     mainArea.className = 'main-area';
     
-    // 左排 - 桌2, 桌3
+    // 左排 - A2, A1
     const leftColumn = document.createElement('div');
     leftColumn.className = 'table-column';
-    leftColumn.appendChild(createOverviewTableCard(2));
-    leftColumn.appendChild(createOverviewTableCard(3));
+    leftColumn.appendChild(createOverviewTableCard('A2'));
+    leftColumn.appendChild(createOverviewTableCard('A1'));
     
-    // 中排 - 桌4, 桌5
+    // 中排 - B8, B2, B1
     const centerColumn = document.createElement('div');
     centerColumn.className = 'table-column';
-    centerColumn.appendChild(createOverviewTableCard(4));
-    centerColumn.appendChild(createOverviewTableCard(5));
+    centerColumn.appendChild(createOverviewTableCard('B8'));
+    centerColumn.appendChild(createOverviewTableCard('B2'));
+    centerColumn.appendChild(createOverviewTableCard('B1'));
     
-    // 右排 - 桌6, 桌7
+    // 右排 - C2, C1
     const rightColumn = document.createElement('div');
     rightColumn.className = 'table-column';
-    rightColumn.appendChild(createOverviewTableCard(6));
-    rightColumn.appendChild(createOverviewTableCard(7));
+    rightColumn.appendChild(createOverviewTableCard('C2'));
+    rightColumn.appendChild(createOverviewTableCard('C1'));
     
     mainArea.appendChild(leftColumn);
     mainArea.appendChild(centerColumn);
@@ -355,6 +290,9 @@ function createOverviewTableCard(tableNum) {
     
     tableCard.innerHTML = `
         <div class="overview-table-number">桌${tableNum}</div>
+        <div class="overview-table-info">
+            <span class="guest-count">${guestCount}/${maxSeats}</span>
+        </div>
     `;
     
     // 點擊事件 - 切換到詳細視圖
@@ -368,13 +306,14 @@ function createOverviewTableCard(tableNum) {
 // 獲取桌次的最大座位數
 function getMaxSeatsForTable(tableNum) {
     const seatConfigs = {
-        1: 12, // 6x2
-        2: 14, // 2x7
-        3: 6,  // 2x3
-        4: 6,  // 2x3
-        5: 16, // 2x8
-        6: 10, // 2x5
-        7: 10  // 2x5
+        'A7': 4,  // 菱形桌
+        'A2': 10, // 長桌
+        'A1': 8,  // 長桌
+        'B8': 12, // 長桌
+        'B2': 14, // 長桌
+        'B1': 6,  // 長桌
+        'C2': 10, // 長桌
+        'C1': 10  // 長桌
     };
     return seatConfigs[tableNum] || 0;
 }
@@ -458,7 +397,7 @@ function generateDetailSeats(tableNum) {
         
         // 檢查是否有賓客在此座位
         const guest = guestData.find(g => g.tableNumber === tableNum.toString() && g.seatNumber === seatNum.toString());
-        if (guest) {
+        if (guest && guest.name.trim() !== '') {
             seat.classList.add('occupied');
             seat.title = `${guest.name} - 桌${guest.tableNumber} 座位${guest.seatNumber}`;
         } else {
@@ -468,7 +407,7 @@ function generateDetailSeats(tableNum) {
         
         // 點擊事件
         seat.addEventListener('click', function() {
-            if (guest) {
+            if (guest && guest.name.trim() !== '') {
                 // 顯示賓客資訊在右側面板
                 showGuestInfo(guest);
                 currentGuest = guest;
@@ -550,4 +489,3 @@ function highlightGuestSeat(guest) {
         targetSeat.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 }
-
