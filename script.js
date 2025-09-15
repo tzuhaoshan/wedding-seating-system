@@ -231,7 +231,7 @@ function displayResultCard(state, data = null) {
     resultCard.innerHTML = html;
 }
 
-// 生成概覽網格 - 根據正確的平面圖佈局配置
+// 生成概覽網格 - 根據平面圖實際桌子大小佈局
 function generateOverviewGrid() {
     const overviewGrid = document.getElementById('overviewGrid');
     overviewGrid.innerHTML = '';
@@ -240,26 +240,26 @@ function generateOverviewGrid() {
     const floorPlan = document.createElement('div');
     floorPlan.className = 'floor-plan';
     
-    // 第一排 - 只有 B8桌
+    // 第一排 - 只有 B8桌（12個座位，較長）
     const firstRow = document.createElement('div');
     firstRow.className = 'floor-row';
     firstRow.appendChild(createOverviewTableCard('B8'));
     
-    // 第二排 - A7, B2, C2
+    // 第二排 - A7（菱形，4個座位）, B2（最長，14個座位）, C2（10個座位）
     const secondRow = document.createElement('div');
     secondRow.className = 'floor-row';
     secondRow.appendChild(createOverviewTableCard('A7'));
     secondRow.appendChild(createOverviewTableCard('B2'));
     secondRow.appendChild(createOverviewTableCard('C2'));
     
-    // 第三排 - A2, B1, C1
+    // 第三排 - A2（10個座位）, B1（6個座位，較短）, C1（10個座位）
     const thirdRow = document.createElement('div');
     thirdRow.className = 'floor-row';
     thirdRow.appendChild(createOverviewTableCard('A2'));
     thirdRow.appendChild(createOverviewTableCard('B1'));
     thirdRow.appendChild(createOverviewTableCard('C1'));
     
-    // 第四排 - 只有 A1桌
+    // 第四排 - 只有 A1桌（8個座位）
     const fourthRow = document.createElement('div');
     fourthRow.className = 'floor-row';
     fourthRow.appendChild(createOverviewTableCard('A1'));

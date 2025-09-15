@@ -407,41 +407,23 @@ body {
     min-height: 400px;
 }
 
-/* 原來的平面圖配置樣式 */
+/* 平面圖配置樣式 - 根據實際桌子大小 */
 .floor-plan {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     align-items: center;
     max-width: 100%;
 }
 
-/* 最上面橫排 */
-.top-row {
+/* 每排的佈局 */
+.floor-row {
     display: flex;
     justify-content: center;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.top-row .overview-table-card {
-    max-width: 800px;
-}
-
-/* 主要區域 - 三條直排 */
-.main-area {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    width: 100%;
-    max-width: 1200px;
-}
-
-.table-column {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
     align-items: center;
+    gap: 20px;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 /* 概覽桌次卡片 */
@@ -462,40 +444,54 @@ body {
     align-items: center;
 }
 
-/* 根據桌次設定不同的大小，與詳細查看保持一致 */
-.overview-table-card[data-table="1"] {
-    width: 220px;
-    height: 90px;
+/* 根據桌次設定不同的大小，反映實際桌子大小 */
+/* A7桌 - 菱形，4個座位（最小） */
+.overview-table-card[data-table="A7"] {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
 }
 
-.overview-table-card[data-table="2"] {
-    width: 90px;
-    height: 220px;
+/* B8桌 - 12個座位（較長） */
+.overview-table-card[data-table="B8"] {
+    width: 200px;
+    height: 80px;
 }
 
-.overview-table-card[data-table="3"] {
-    width: 90px;
-    height: 140px;
+/* B2桌 - 14個座位（最長） */
+.overview-table-card[data-table="B2"] {
+    width: 240px;
+    height: 80px;
 }
 
-.overview-table-card[data-table="4"] {
-    width: 90px;
-    height: 140px;
+/* A2桌 - 10個座位（中等長度） */
+.overview-table-card[data-table="A2"] {
+    width: 180px;
+    height: 80px;
 }
 
-.overview-table-card[data-table="5"] {
-    width: 90px;
-    height: 260px;
+/* C2桌 - 10個座位（中等長度） */
+.overview-table-card[data-table="C2"] {
+    width: 180px;
+    height: 80px;
 }
 
-.overview-table-card[data-table="6"] {
-    width: 90px;
-    height: 180px;
+/* C1桌 - 10個座位（中等長度） */
+.overview-table-card[data-table="C1"] {
+    width: 180px;
+    height: 80px;
 }
 
-.overview-table-card[data-table="7"] {
-    width: 90px;
-    height: 180px;
+/* A1桌 - 8個座位（中等） */
+.overview-table-card[data-table="A1"] {
+    width: 160px;
+    height: 80px;
+}
+
+/* B1桌 - 6個座位（較短） */
+.overview-table-card[data-table="B1"] {
+    width: 120px;
+    height: 80px;
 }
 .overview-table-card:hover {
     box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.1);
@@ -912,55 +908,56 @@ body {
     }
     
     /* 平板版桌子大小調整 */
-    .overview-table-card[data-table="1"] {
-        width: 180px;
-        height: 72px;
+    .overview-table-card[data-table="A7"] {
+        width: 60px;
+        height: 60px;
     }
     
-    .overview-table-card[data-table="2"] {
-        width: 72px;
-        height: 180px;
+    .overview-table-card[data-table="B8"] {
+        width: 160px;
+        height: 60px;
     }
     
-    .overview-table-card[data-table="3"] {
-        width: 72px;
-        height: 112px;
+    .overview-table-card[data-table="B2"] {
+        width: 200px;
+        height: 60px;
     }
     
-    .overview-table-card[data-table="4"] {
-        width: 72px;
-        height: 112px;
+    .overview-table-card[data-table="A2"] {
+        width: 140px;
+        height: 60px;
     }
     
-    .overview-table-card[data-table="5"] {
-        width: 72px;
-        height: 208px;
+    .overview-table-card[data-table="C2"] {
+        width: 140px;
+        height: 60px;
     }
     
-    .overview-table-card[data-table="6"] {
-        width: 72px;
-        height: 144px;
+    .overview-table-card[data-table="C1"] {
+        width: 140px;
+        height: 60px;
     }
     
-    .overview-table-card[data-table="7"] {
-        width: 72px;
-        height: 144px;
+    .overview-table-card[data-table="A1"] {
+        width: 120px;
+        height: 60px;
+    }
+    
+    .overview-table-card[data-table="B1"] {
+        width: 100px;
+        height: 60px;
     }
     
     .overview-table-number {
         font-size: 1rem;
     }
     
-    .main-area {
-        gap: 20px;
+    .floor-plan {
+        gap: 16px;
     }
     
-    .table-column {
-        gap: 20px;
-    }
-    
-    .top-row {
-        margin-bottom: 16px;
+    .floor-row {
+        gap: 16px;
     }
     .detail-seats {
         padding: 12px;
@@ -1033,55 +1030,56 @@ body {
     }
     
     /* 手機版桌子大小調整 */
-    .overview-table-card[data-table="1"] {
-        width: 140px;
-        height: 56px;
+    .overview-table-card[data-table="A7"] {
+        width: 50px;
+        height: 50px;
     }
     
-    .overview-table-card[data-table="2"] {
-        width: 56px;
-        height: 140px;
+    .overview-table-card[data-table="B8"] {
+        width: 120px;
+        height: 50px;
     }
     
-    .overview-table-card[data-table="3"] {
-        width: 56px;
-        height: 84px;
+    .overview-table-card[data-table="B2"] {
+        width: 150px;
+        height: 50px;
     }
     
-    .overview-table-card[data-table="4"] {
-        width: 56px;
-        height: 84px;
+    .overview-table-card[data-table="A2"] {
+        width: 110px;
+        height: 50px;
     }
     
-    .overview-table-card[data-table="5"] {
-        width: 56px;
-        height: 168px;
+    .overview-table-card[data-table="C2"] {
+        width: 110px;
+        height: 50px;
     }
     
-    .overview-table-card[data-table="6"] {
-        width: 56px;
-        height: 112px;
+    .overview-table-card[data-table="C1"] {
+        width: 110px;
+        height: 50px;
     }
     
-    .overview-table-card[data-table="7"] {
-        width: 56px;
-        height: 112px;
+    .overview-table-card[data-table="A1"] {
+        width: 90px;
+        height: 50px;
+    }
+    
+    .overview-table-card[data-table="B1"] {
+        width: 80px;
+        height: 50px;
     }
     
     .overview-table-number {
         font-size: 0.875rem;
     }
     
-    .main-area {
+    .floor-plan {
         gap: 12px;
     }
     
-    .table-column {
+    .floor-row {
         gap: 12px;
-    }
-    
-    .top-row {
-        margin-bottom: 12px;
     }
     .detail-seats-grid[data-table="1"] {
         min-width: 240px;
