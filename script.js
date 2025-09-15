@@ -259,7 +259,7 @@ function generateOverviewGrid() {
     thirdRow.appendChild(createOverviewTableCard('B1'));
     thirdRow.appendChild(createOverviewTableCard('C1'));
     
-    // 第四排 - 只有 A1桌（直排 2×4，8個座位）
+    // 第四排 - A1（直排 2×4，8個座位）在最左邊，其他位置留空
     const fourthRow = document.createElement('div');
     fourthRow.className = 'floor-row';
     fourthRow.appendChild(createOverviewTableCard('A1'));
