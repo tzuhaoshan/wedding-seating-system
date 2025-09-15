@@ -548,55 +548,6 @@ function removeExistingTooltips() {
     });
 }
 
-// 顯示賓客資訊（保留原函數以備用）
-function showGuestInfo(guest) {
-    const guestInfoContent = document.querySelector('.guest-info-content');
-    guestInfoContent.innerHTML = `
-        <div class="guest-info-card">
-            <div class="guest-info-avatar">
-                <span class="material-icons-outlined">person</span>
-            </div>
-            <div class="guest-info-details">
-                <h5 class="guest-name">${guest.name}</h5>
-                <div class="guest-seat-info">
-                    <div class="info-item">
-                        <span class="material-icons-outlined">table_restaurant</span>
-                        <span>桌次 ${guest.tableNumber}</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="material-icons-outlined">event_seat</span>
-                        <span>座位 ${guest.seatNumber}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-}
-
-// 顯示空位資訊
-function showEmptySeatInfo(tableNum, seatNum) {
-    const guestInfoContent = document.querySelector('.guest-info-content');
-    guestInfoContent.innerHTML = `
-        <div class="guest-info-card empty">
-            <div class="guest-info-avatar">
-                <span class="material-icons-outlined">event_seat</span>
-            </div>
-            <div class="guest-info-details">
-                <h5 class="guest-name">空位</h5>
-                <div class="guest-seat-info">
-                    <div class="info-item">
-                        <span class="material-icons-outlined">table_restaurant</span>
-                        <span>桌次 ${tableNum}</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="material-icons-outlined">event_seat</span>
-                        <span>座位 ${seatNum}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-}
 
 // 高亮賓客座位
 function highlightGuestSeat(guest) {
