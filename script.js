@@ -231,7 +231,7 @@ function displayResultCard(state, data = null) {
     resultCard.innerHTML = html;
 }
 
-// 生成概覽網格 - 根據新平面圖配置
+// 生成概覽網格 - 根據平面圖實際佈局配置
 function generateOverviewGrid() {
     const overviewGrid = document.getElementById('overviewGrid');
     overviewGrid.innerHTML = '';
@@ -250,20 +250,20 @@ function generateOverviewGrid() {
     const mainArea = document.createElement('div');
     mainArea.className = 'main-area';
     
-    // 左排 - A2, A1
+    // 左排 - A2, A1（從上到下）
     const leftColumn = document.createElement('div');
     leftColumn.className = 'table-column';
     leftColumn.appendChild(createOverviewTableCard('A2'));
     leftColumn.appendChild(createOverviewTableCard('A1'));
     
-    // 中排 - B8, B2, B1
+    // 中排 - B8, B2, B1（從上到下）
     const centerColumn = document.createElement('div');
     centerColumn.className = 'table-column';
     centerColumn.appendChild(createOverviewTableCard('B8'));
     centerColumn.appendChild(createOverviewTableCard('B2'));
     centerColumn.appendChild(createOverviewTableCard('B1'));
     
-    // 右排 - C2, C1
+    // 右排 - C2, C1（從上到下）
     const rightColumn = document.createElement('div');
     rightColumn.className = 'table-column';
     rightColumn.appendChild(createOverviewTableCard('C2'));
