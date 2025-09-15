@@ -416,14 +416,29 @@ body {
     max-width: 100%;
 }
 
-/* 每排的佈局 */
+/* 第一排 - B8桌 */
 .floor-row {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
     width: 100%;
-    flex-wrap: wrap;
+}
+
+/* 主要區域 - 三列佈局 */
+.main-area {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.table-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
 }
 
 /* 概覽桌次卡片 */
@@ -444,7 +459,7 @@ body {
     align-items: center;
 }
 
-/* 根據桌次設定不同的大小，反映實際座位排列 */
+/* 根據桌次設定不同的大小，讓三列總長度大致相同 */
 /* A7桌 - 菱形，4個座位 */
 .overview-table-card[data-table="A7"] {
     width: 80px;
@@ -461,31 +476,31 @@ body {
 /* B2桌 - 直排 2×7，14個座位（縱向長桌） */
 .overview-table-card[data-table="B2"] {
     width: 80px;
-    height: 280px;
+    height: 240px;
 }
 
 /* A2桌 - 直排 2×5，10個座位（縱向長桌） */
 .overview-table-card[data-table="A2"] {
     width: 80px;
-    height: 200px;
+    height: 180px;
 }
 
 /* C2桌 - 直排 2×5，10個座位（縱向長桌） */
 .overview-table-card[data-table="C2"] {
     width: 80px;
-    height: 200px;
+    height: 180px;
 }
 
 /* C1桌 - 直排 2×5，10個座位（縱向長桌） */
 .overview-table-card[data-table="C1"] {
     width: 80px;
-    height: 200px;
+    height: 180px;
 }
 
 /* A1桌 - 直排 2×4，8個座位（縱向長桌） */
 .overview-table-card[data-table="A1"] {
     width: 80px;
-    height: 160px;
+    height: 140px;
 }
 
 /* B1桌 - 直排 2×3，6個座位（縱向長桌） */
@@ -920,27 +935,27 @@ body {
     
     .overview-table-card[data-table="B2"] {
         width: 60px;
-        height: 210px;
+        height: 180px;
     }
     
     .overview-table-card[data-table="A2"] {
         width: 60px;
-        height: 150px;
+        height: 135px;
     }
     
     .overview-table-card[data-table="C2"] {
         width: 60px;
-        height: 150px;
+        height: 135px;
     }
     
     .overview-table-card[data-table="C1"] {
         width: 60px;
-        height: 150px;
+        height: 135px;
     }
     
     .overview-table-card[data-table="A1"] {
         width: 60px;
-        height: 120px;
+        height: 105px;
     }
     
     .overview-table-card[data-table="B1"] {
@@ -956,7 +971,11 @@ body {
         gap: 16px;
     }
     
-    .floor-row {
+    .main-area {
+        gap: 20px;
+    }
+    
+    .table-column {
         gap: 16px;
     }
     .detail-seats {
@@ -1042,27 +1061,27 @@ body {
     
     .overview-table-card[data-table="B2"] {
         width: 50px;
-        height: 175px;
+        height: 150px;
     }
     
     .overview-table-card[data-table="A2"] {
         width: 50px;
-        height: 125px;
+        height: 110px;
     }
     
     .overview-table-card[data-table="C2"] {
         width: 50px;
-        height: 125px;
+        height: 110px;
     }
     
     .overview-table-card[data-table="C1"] {
         width: 50px;
-        height: 125px;
+        height: 110px;
     }
     
     .overview-table-card[data-table="A1"] {
         width: 50px;
-        height: 100px;
+        height: 90px;
     }
     
     .overview-table-card[data-table="B1"] {
@@ -1078,7 +1097,11 @@ body {
         gap: 12px;
     }
     
-    .floor-row {
+    .main-area {
+        gap: 16px;
+    }
+    
+    .table-column {
         gap: 12px;
     }
     .detail-seats-grid[data-table="1"] {
