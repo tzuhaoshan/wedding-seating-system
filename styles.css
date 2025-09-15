@@ -1059,8 +1059,9 @@ body {
     }
     
     .detail-seats-grid[data-table="B8"] {
-        min-width: 240px;
+        min-width: 200px;
         min-height: 60px;
+        max-width: 100%;
     }
     
     .detail-seats-grid[data-table="B2"] {
@@ -1096,12 +1097,24 @@ body {
     .detail-seats-grid {
         gap: 4px;
         padding: 8px;
+        max-width: 100%;
+        overflow: hidden;
     }
     
     .detail-seat {
         width: 30px;
         height: 30px;
         font-size: 0.65rem;
+    }
+    
+    /* 確保詳細圖容器能夠適配螢幕 */
+    .detail-seats {
+        padding: 8px;
+        overflow-x: auto;
+    }
+    
+    .detail-seats-section {
+        overflow: hidden;
     }
     
     .detail-header {
