@@ -339,6 +339,8 @@ function clearHighlights() {
     document.querySelectorAll('.detail-seat').forEach(seat => {
         seat.classList.remove('highlighted');
     });
+    // 清除所有懸浮提示
+    removeExistingTooltips();
 }
 
 // 顯示概覽視圖
@@ -412,13 +414,13 @@ function generateDetailSeats(tableNum) {
         // 點擊事件
         seat.addEventListener('click', function() {
             if (guest && guest.name.trim() !== '') {
-                // 顯示賓客資訊在右側面板
-                showGuestInfo(guest);
+                // 顯示懸浮賓客名字
+                showFloatingGuestName(seat, guest);
                 currentGuest = guest;
                 highlightGuestSeat(guest);
             } else {
-                // 顯示空位資訊
-                showEmptySeatInfo(tableNum, seatNum);
+                // 顯示懸浮空位資訊
+                showFloatingEmptySeatInfo(seat, tableNum, seatNum);
             }
         });
         
@@ -459,7 +461,91 @@ function getSeatNumbers(tableNum) {
     return seatNumbers[tableNum] || [];
 }
 
-// 顯示賓客資訊
+// 顯示懸浮賓客名字
+function showFloatingGuestName(seatElement, guest) {
+    // 移除現有的懸浮提示
+    removeExistingTooltips();
+    
+    // 創建懸浮提示元素
+    const tooltip = document.createElement('div');
+    tooltip.className = 'seat-tooltip';
+    tooltip.textContent = guest.name;
+    
+    // 將提示添加到座位元素
+    seatElement.style.position = 'relative';
+    seatElement.appendChild(tooltip);
+    
+    // 計算提示位置
+    const seatRect = seatElement.getBoundingClientRect();
+    const tooltipRect = tooltip.getBoundingClientRect();
+    
+    // 設置提示位置（在座位上方）
+    tooltip.style.left = '50%';
+    tooltip.style.top = '-45px';
+    tooltip.style.transform = 'translateX(-50%)';
+    
+    // 顯示提示
+    setTimeout(() => {
+        tooltip.classList.add('show');
+    }, 10);
+    
+    // 3秒後自動隱藏
+    setTimeout(() => {
+        hideFloatingTooltip(tooltip);
+    }, 3000);
+}
+
+// 顯示懸浮空位資訊
+function showFloatingEmptySeatInfo(seatElement, tableNum, seatNum) {
+    // 移除現有的懸浮提示
+    removeExistingTooltips();
+    
+    // 創建懸浮提示元素
+    const tooltip = document.createElement('div');
+    tooltip.className = 'seat-tooltip';
+    tooltip.textContent = `空位 - 桌${tableNum} 座位${seatNum}`;
+    
+    // 將提示添加到座位元素
+    seatElement.style.position = 'relative';
+    seatElement.appendChild(tooltip);
+    
+    // 設置提示位置（在座位上方）
+    tooltip.style.left = '50%';
+    tooltip.style.top = '-45px';
+    tooltip.style.transform = 'translateX(-50%)';
+    
+    // 顯示提示
+    setTimeout(() => {
+        tooltip.classList.add('show');
+    }, 10);
+    
+    // 2秒後自動隱藏
+    setTimeout(() => {
+        hideFloatingTooltip(tooltip);
+    }, 2000);
+}
+
+// 隱藏懸浮提示
+function hideFloatingTooltip(tooltip) {
+    if (tooltip && tooltip.parentNode) {
+        tooltip.classList.remove('show');
+        setTimeout(() => {
+            if (tooltip.parentNode) {
+                tooltip.parentNode.removeChild(tooltip);
+            }
+        }, 200);
+    }
+}
+
+// 移除所有現有的懸浮提示
+function removeExistingTooltips() {
+    const existingTooltips = document.querySelectorAll('.seat-tooltip');
+    existingTooltips.forEach(tooltip => {
+        hideFloatingTooltip(tooltip);
+    });
+}
+
+// 顯示賓客資訊（保留原函數以備用）
 function showGuestInfo(guest) {
     const guestInfoContent = document.querySelector('.guest-info-content');
     guestInfoContent.innerHTML = `

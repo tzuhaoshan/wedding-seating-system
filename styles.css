@@ -845,6 +845,39 @@ body {
     animation: detailPulse 2s infinite;
 }
 
+/* 懸浮賓客名字提示 */
+.seat-tooltip {
+    position: absolute;
+    background-color: var(--md-sys-color-on-surface);
+    color: var(--md-sys-color-surface);
+    padding: 8px 12px;
+    border-radius: var(--md-sys-shape-corner-medium);
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    z-index: 1000;
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    pointer-events: none;
+}
+
+.seat-tooltip.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.seat-tooltip::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--md-sys-color-on-surface);
+}
+
 @keyframes detailPulse {
     0% {
         box-shadow: 0 4px 12px -2px rgba(103, 80, 164, 0.4);
