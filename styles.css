@@ -464,7 +464,13 @@ body {
 .overview-table-card[data-table="A7"] {
     width: 80px;
     height: 80px;
-    border-radius: 50%;
+    transform: rotate(45deg);
+    border-radius: 8px;
+}
+
+/* A7桌內部文字保持水平 */
+.overview-table-card[data-table="A7"] .overview-table-number {
+    transform: rotate(-45deg);
 }
 
 /* B8桌 - 橫排 6×2，12個座位（橫向長桌） */
@@ -926,6 +932,7 @@ body {
     .overview-table-card[data-table="A7"] {
         width: 60px;
         height: 60px;
+        transform: rotate(45deg);
     }
     
     .overview-table-card[data-table="B8"] {
@@ -1052,6 +1059,7 @@ body {
     .overview-table-card[data-table="A7"] {
         width: 50px;
         height: 50px;
+        transform: rotate(45deg);
     }
     
     .overview-table-card[data-table="B8"] {
