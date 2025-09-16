@@ -618,6 +618,9 @@ body {
     border-radius: var(--md-sys-shape-corner-medium);
     border: 1px solid var(--md-sys-color-outline);
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
 }
 
 /* Detail seat configurations - 根據實際桌次配置 */
@@ -625,73 +628,57 @@ body {
 .detail-seats-grid[data-table="A7"] {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    min-width: 120px;
-    min-height: 120px;
-    max-width: 100%;
     border-radius: 50%;
+    aspect-ratio: 1;
 }
 
 /* B8桌 - 橫排 6×2，12個座位 */
 .detail-seats-grid[data-table="B8"] {
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    min-width: 360px;
-    min-height: 100px;
-    max-width: 100%;
+    aspect-ratio: 3;
 }
 
 /* B2桌 - 直排 2×7，14個座位 */
 .detail-seats-grid[data-table="B2"] {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(7, 1fr);
-    min-width: 120px;
-    min-height: 420px;
-    max-width: 100%;
+    aspect-ratio: 2/7;
 }
 
 /* A2桌 - 直排 2×5，10個座位 */
 .detail-seats-grid[data-table="A2"] {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    min-width: 120px;
-    min-height: 300px;
-    max-width: 100%;
+    aspect-ratio: 2/5;
 }
 
 /* C2桌 - 直排 2×5，10個座位 */
 .detail-seats-grid[data-table="C2"] {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    min-width: 120px;
-    min-height: 300px;
-    max-width: 100%;
+    aspect-ratio: 2/5;
 }
 
 /* C1桌 - 直排 2×5，10個座位 */
 .detail-seats-grid[data-table="C1"] {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    min-width: 120px;
-    min-height: 300px;
-    max-width: 100%;
+    aspect-ratio: 2/5;
 }
 
 /* A1桌 - 直排 2×4，8個座位 */
 .detail-seats-grid[data-table="A1"] {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    min-width: 120px;
-    min-height: 240px;
-    max-width: 100%;
+    aspect-ratio: 2/4;
 }
 
 /* B1桌 - 直排 2×3，6個座位 */
 .detail-seats-grid[data-table="B1"] {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    min-width: 120px;
-    min-height: 180px;
-    max-width: 100%;
+    aspect-ratio: 2/3;
 }
 
 /* Detail Seat */
@@ -943,45 +930,7 @@ body {
         padding: 12px;
     }
     
-    .detail-seats-grid[data-table="A7"] {
-        min-width: 100px;
-        min-height: 100px;
-    }
-    
-    .detail-seats-grid[data-table="B8"] {
-        min-width: 300px;
-        min-height: 80px;
-    }
-    
-    .detail-seats-grid[data-table="B2"] {
-        min-width: 100px;
-        min-height: 350px;
-    }
-    
-    .detail-seats-grid[data-table="A2"] {
-        min-width: 100px;
-        min-height: 250px;
-    }
-    
-    .detail-seats-grid[data-table="C2"] {
-        min-width: 100px;
-        min-height: 250px;
-    }
-    
-    .detail-seats-grid[data-table="C1"] {
-        min-width: 100px;
-        min-height: 250px;
-    }
-    
-    .detail-seats-grid[data-table="A1"] {
-        min-width: 100px;
-        min-height: 200px;
-    }
-    
-    .detail-seats-grid[data-table="B1"] {
-        min-width: 100px;
-        min-height: 150px;
-    }
+    /* 響應式設計中移除固定尺寸，讓卡片使用 aspect-ratio 和容器尺寸 */
     
     .detail-seat {
         width: 35px;
@@ -1066,46 +1015,7 @@ body {
         gap: 12px;
         justify-content: flex-end;
     }
-    .detail-seats-grid[data-table="A7"] {
-        min-width: 80px;
-        min-height: 80px;
-    }
-    
-    .detail-seats-grid[data-table="B8"] {
-        min-width: 200px;
-        min-height: 60px;
-        max-width: 100%;
-    }
-    
-    .detail-seats-grid[data-table="B2"] {
-        min-width: 80px;
-        min-height: 280px;
-    }
-    
-    .detail-seats-grid[data-table="A2"] {
-        min-width: 80px;
-        min-height: 200px;
-    }
-    
-    .detail-seats-grid[data-table="C2"] {
-        min-width: 80px;
-        min-height: 200px;
-    }
-    
-    .detail-seats-grid[data-table="C1"] {
-        min-width: 80px;
-        min-height: 200px;
-    }
-    
-    .detail-seats-grid[data-table="A1"] {
-        min-width: 80px;
-        min-height: 160px;
-    }
-    
-    .detail-seats-grid[data-table="B1"] {
-        min-width: 80px;
-        min-height: 120px;
-    }
+    /* 行動裝置版也移除固定尺寸，讓卡片使用 aspect-ratio 和容器尺寸 */
     
     .detail-seats-grid {
         gap: 4px;
