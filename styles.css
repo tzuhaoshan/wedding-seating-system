@@ -557,6 +557,7 @@ body {
     display: flex;
     gap: 24px;
     align-items: flex-start;
+    justify-content: center;
 }
 
 .detail-seats-section {
@@ -851,6 +852,7 @@ body {
     .detail-layout {
         flex-direction: column;
         gap: 16px;
+        justify-content: center;
     }
     
     body {
