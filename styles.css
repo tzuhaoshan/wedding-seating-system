@@ -576,6 +576,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 0;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 
@@ -608,6 +610,8 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .detail-seats-grid {
@@ -618,9 +622,10 @@ body {
     border-radius: var(--md-sys-shape-corner-medium);
     border: 1px solid var(--md-sys-color-outline);
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     min-height: 300px;
+    object-fit: contain;
 }
 
 /* Detail seat configurations - 根據實際桌次配置 */
@@ -1033,7 +1038,8 @@ body {
     /* 確保詳細圖容器能夠適配螢幕 */
     .detail-seats {
         padding: 8px;
-        overflow-x: auto;
+        overflow: hidden;
+        box-sizing: border-box;
     }
     
     .detail-seats-section {
