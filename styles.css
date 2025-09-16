@@ -327,6 +327,9 @@ body {
 .floor-plan-container {
     margin-bottom: 24px;
     position: relative;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
 }
 
 /* View Controls */
@@ -379,10 +382,13 @@ body {
 .floor-plan-view {
     display: none;
     animation: fadeIn 0.3s ease;
+    min-height: 100%;
+    flex: 1;
 }
 
 .floor-plan-view.active {
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 
 @keyframes fadeIn {
@@ -557,6 +563,8 @@ body {
     display: flex;
     gap: 24px;
     align-items: flex-start;
+    min-height: 100%;
+    flex: 1;
 }
 
 .detail-seats-section {
@@ -565,6 +573,9 @@ body {
     border-radius: var(--md-sys-shape-corner-large);
     border: 1px solid var(--md-sys-color-outline);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
 }
 
 
@@ -595,6 +606,8 @@ body {
     padding: 16px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    min-height: 100%;
 }
 
 .detail-seats-grid {
